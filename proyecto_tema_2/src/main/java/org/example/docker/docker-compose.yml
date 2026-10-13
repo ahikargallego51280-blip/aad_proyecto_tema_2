@@ -1,0 +1,29 @@
+
+services:
+  mariadb:
+    image: mariadb:11.4
+    container_name: asociacion-servidor
+    restart: unless-stopped
+
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Define DB_ROOT_PASSWORD en .env}
+      MARIADB_DATABASE: asociacion_juegos
+      MARIADB_USER: asociacion_app
+      MARIADB_PASSWORD: ${DB_PASSWORD:?Define DB_PASSWORD en .env}
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - datos_mariadb:/var/lib/mysql
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  datos_mariadb:
