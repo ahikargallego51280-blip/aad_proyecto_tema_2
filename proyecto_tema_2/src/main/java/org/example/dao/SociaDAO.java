@@ -109,4 +109,19 @@ public class SociaDAO {
             return ps.executeUpdate() == 1;
         }
     }
+
+    public boolean existe(String documento) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM socia WHERE documento = ?";
+
+        try (Connection conn = Conexion.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, documento);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                rs.next();
+                return rs.getInt(1) > 0;
+            }
+        }
+    }
 }
