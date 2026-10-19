@@ -1,6 +1,6 @@
 package org.example.model;
 
-public class Socia {
+public class Socio {
 
     private String documento;
     private String nombre;
@@ -10,7 +10,7 @@ public class Socia {
     private String email;
     private boolean activa;
 
-    public Socia(String documento, String nombre, String apellidos,
+    public Socio(String documento, String nombre, String apellidos,
                  String telefono, int edad, String email, boolean activa) {
         this.documento = documento;
         this.nombre = nombre;
@@ -75,7 +75,7 @@ public class Socia {
 
     @Override
     public String toString() {
-        return "Socia{" +
+        return "Socio{" +
                 "documento='" + documento + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +

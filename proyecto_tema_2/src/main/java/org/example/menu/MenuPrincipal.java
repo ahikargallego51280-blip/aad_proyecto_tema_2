@@ -1,6 +1,12 @@
-
 package org.example.menu;
 
+import org.example.dao.AsociacionDAO;
+import org.example.dao.SocioDAO;
+import org.example.dao.JuegoDAO;
+import org.example.dao.PartidaDAO;
+import org.example.json.ExportadorJSON;
+
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MenuPrincipal {
@@ -12,128 +18,114 @@ public class MenuPrincipal {
 
         do {
             System.out.println();
-            System.out.println("╔══════════════════════════════════════╗");
-            System.out.println("║       🎲 ASOCIACIÓN DE JUEGOS        ║");
-            System.out.println("║          Sistema de gestión          ║");
-            System.out.println("╚══════════════════════════════════════╝");
-            System.out.println();
-            System.out.println("  👥 1. Gestión de socias");
-            System.out.println("  🎮 2. Gestión de juegos");
-            System.out.println("  📅 3. Gestión de partidas");
-            System.out.println("  🏆 4. Gestión de participantes");
-            System.out.println("  📦 5. Exportar datos (JSON/XML)");
-            System.out.println("  🗄️  6. Información de la base de datos");
-            System.out.println("  ℹ️  7. Información de la asociación");
-            System.out.println("  🚪 0. Salir");
-            System.out.println();
-            System.out.print("👉 Selecciona una opción: ");
+            System.out.println("--------------------------------------");
+            System.out.println("ASOCIACION DE JUEGOS");
+            System.out.println("Sistema de gestion");
+            System.out.println("--------------------------------------");
 
+            System.out.println("1. Gestion de socios");
+            System.out.println("2. Gestion de juegos");
+            System.out.println("3. Gestion de partidas");
+            System.out.println("4. Gestion de participantes");
+            System.out.println("5. Exportar datos JSON");
+            System.out.println("6. Informacion de la base de datos");
+            System.out.println("7. Informacion de la asociacion");
+            System.out.println("0. Salir");
+
+            System.out.print("Selecciona una opcion: ");
             opcion = leerEntero();
 
             switch (opcion) {
-                case 1 -> menuSocias();
-                case 2 -> menuJuegos();
-                case 3 -> menuPartidas();
-                case 4 -> menuParticipantes();
-                case 5 -> menuExportaciones();
-                case 6 -> mostrarBaseDatos();
+                case 1 -> new MenuSocios().mostrar();
+
+                case 2 -> new MenuJuegos().mostrar();
+
+                case 3 -> new MenuPartidas().mostrar();
+
+                case 4 -> new MenuParticipaciones().mostrar();
+
+                case 5 -> exportarJSON();
+
+                case 6 -> new MenuBaseDatos().mostrar();
+
                 case 7 -> mostrarInformacion();
-                case 0 -> despedida();
-                default -> System.out.println("❌ Opción no válida.");
-            }
 
-        } while (opcion != 0);
-    }
-
-    private void menuSocias() {
-        MenuSocias menu = new MenuSocias();
-        menu.mostrar();
-    }
-
-
-    private void menuJuegos() {
-        MenuJuegos menu = new MenuJuegos();
-        menu.mostrar();
-    }
-
-
-    private void menuPartidas() {
-        mostrarSubmenu("📅 GESTIÓN DE PARTIDAS",
-                new String[]{
-                        "➕ Crear partida",
-                        "📋 Listar partidas",
-                        "✏️ Modificar partida",
-                        "🔴 Cancelar partida"
-                });
-    }
-
-    private void menuParticipantes() {
-        mostrarSubmenu("🏆 GESTIÓN DE PARTICIPANTES",
-                new String[]{
-                        "➕ Añadir participante",
-                        "📋 Ver participantes",
-                        "🏅 Registrar ganadora",
-                        "➖ Retirar participante"
-                });
-    }
-
-    private void menuExportaciones() {
-        mostrarSubmenu("📦 EXPORTACIÓN DE DATOS",
-                new String[]{
-                        "📄 Exportar socias a JSON",
-                        "📄 Exportar juegos a JSON",
-                        "📄 Exportar partidas a JSON",
-                        "📑 Exportar datos a XML"
-                });
-    }
-
-    private void mostrarSubmenu(String titulo, String[] opciones) {
-        int opcion;
-
-        do {
-            System.out.println("\n" + titulo);
-            System.out.println("────────────────────────────────────");
-
-            for (int i = 0; i < opciones.length; i++) {
-                System.out.println((i + 1) + ". " + opciones[i]);
-            }
-
-            System.out.println("0. ↩️ Volver al menú principal");
-            System.out.print("👉 Opción: ");
-
-            opcion = leerEntero();
-
-            if (opcion == 0) {
-                System.out.println("↩️ Volviendo al menú principal...");
-            } else if (opcion >= 1 && opcion <= opciones.length) {
-                System.out.println(
-                        "🛠️ Esta función se conectará en los siguientes pasos."
+                case 0 -> System.out.println(
+                        "Gracias por utilizar la aplicacion."
                 );
-            } else {
-                System.out.println("❌ Opción no válida.");
+
+                default -> System.out.println("Opcion no valida.");
             }
 
         } while (opcion != 0);
     }
 
-    private void mostrarBaseDatos() {
-        System.out.println("\n🗄️ ===== BASE DE DATOS =====");
-        System.out.println("La conexión con MariaDB está configurada.");
-        System.out.println("Las funciones de metadatos se añadirán después.");
+    private void exportarJSON() {
+        ExportadorJSON exportador = new ExportadorJSON();
+
+        try {
+            System.out.println();
+            System.out.println("----- EXPORTAR DATOS JSON -----");
+            System.out.println("1. Exportar socios");
+            System.out.println("2. Exportar juegos");
+            System.out.println("3. Exportar partidas");
+            System.out.println("0. Volver");
+            System.out.print("Selecciona una opcion: ");
+
+            int opcion = leerEntero();
+
+            switch (opcion) {
+                case 1 -> {
+                    SocioDAO dao = new SocioDAO();
+                    exportador.exportarSocios(dao.listarTodas());
+                }
+
+                case 2 -> {
+                    JuegoDAO dao = new JuegoDAO();
+                    exportador.exportarJuegos(dao.listarTodos());
+                }
+
+                case 3 -> {
+                    PartidaDAO dao = new PartidaDAO();
+                    exportador.exportarPartidas(dao.listarTodas());
+                }
+
+                case 0 -> System.out.println(
+                        "Volviendo al menu principal."
+                );
+
+                default -> System.out.println("Opcion no valida.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("No se pudieron exportar los datos.");
+            System.out.println("Motivo: " + e.getMessage());
+        }
     }
 
     private void mostrarInformacion() {
-        System.out.println("\nℹ️ ===== ASOCIACIÓN =====");
-        System.out.println("🎲 Asociación de juegos de mesa");
-        System.out.println("📍 Vitoria-Gasteiz");
-        System.out.println(
-                "Sistema de gestión de socias, juegos y partidas."
-        );
-    }
+        AsociacionDAO dao = new AsociacionDAO();
 
-    private void despedida() {
-        System.out.println("\n🎲 Gracias por utilizar la aplicación.");
-        System.out.println("👋 ¡Hasta pronto!");
+        try {
+            var asociacion = dao.obtener();
+
+            if (asociacion == null) {
+                System.out.println("No hay datos de la asociacion.");
+                return;
+            }
+
+            System.out.println();
+            System.out.println("INFORMACION DE LA ASOCIACION");
+            System.out.println("Nombre: " + asociacion.getNombre());
+            System.out.println("CIF: " + asociacion.getCif());
+            System.out.println("Direccion: " + asociacion.getDireccion());
+            System.out.println("Telefono: " + asociacion.getTelefono());
+            System.out.println("Email: " + asociacion.getEmail());
+
+        } catch (SQLException e) {
+            System.out.println("Error al consultar la asociacion.");
+            System.out.println(e.getMessage());
+        }
     }
 
     private int leerEntero() {
@@ -143,7 +135,7 @@ public class MenuPrincipal {
             try {
                 return Integer.parseInt(entrada);
             } catch (NumberFormatException e) {
-                System.out.print("❌ Introduce un número válido: ");
+                System.out.print("Introduce un numero valido: ");
             }
         }
     }

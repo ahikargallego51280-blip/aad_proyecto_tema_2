@@ -1,10 +1,4 @@
 
--- ============================================
--- PROYECTO: ASOCIACION DE JUEGOS DE MESA
--- Base de datos: asociacion_juegos
--- ============================================
-
--- 1. TABLA ASOCIACION
 CREATE TABLE IF NOT EXISTS asociacion (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
@@ -15,8 +9,7 @@ CREATE TABLE IF NOT EXISTS asociacion (
 ) ENGINE=InnoDB;
 
 
--- 2. TABLA SOCIA
-CREATE TABLE IF NOT EXISTS socia (
+CREATE TABLE IF NOT EXISTS socio (
     documento VARCHAR(20) PRIMARY KEY,
     nombre VARCHAR(60) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
@@ -25,12 +18,11 @@ CREATE TABLE IF NOT EXISTS socia (
     email VARCHAR(100),
     activa BOOLEAN NOT NULL DEFAULT TRUE,
 
-    CONSTRAINT chk_socia_edad
+    CONSTRAINT chk_socio_edad
         CHECK (edad >= 0)
 ) ENGINE=InnoDB;
 
 
--- 3. TABLA JUEGO
 CREATE TABLE IF NOT EXISTS juego (
     id_juego INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
@@ -59,7 +51,7 @@ CREATE TABLE IF NOT EXISTS juego (
 
     CONSTRAINT fk_juego_propietario
         FOREIGN KEY (propietario_documento)
-        REFERENCES socia(documento)
+        REFERENCES socio(documento)
         ON DELETE RESTRICT
         ON UPDATE CASCADE,
 
@@ -74,7 +66,6 @@ CREATE TABLE IF NOT EXISTS juego (
 ) ENGINE=InnoDB;
 
 
--- 4. TABLA PARTIDA
 CREATE TABLE IF NOT EXISTS partida (
     id_partida INT PRIMARY KEY AUTO_INCREMENT,
     id_juego INT NOT NULL,
@@ -94,14 +85,10 @@ CREATE TABLE IF NOT EXISTS partida (
 ) ENGINE=InnoDB;
 
 
--- 5. TABLA PARTICIPACION
--- Una participacion corresponde a una socia
--- o a una invitada.
-
 CREATE TABLE IF NOT EXISTS participacion (
     id_participacion INT PRIMARY KEY AUTO_INCREMENT,
     id_partida INT NOT NULL,
-    documento_socia VARCHAR(20),
+    documento_socio VARCHAR(20),
     nombre_invitada VARCHAR(120),
     es_ganadora BOOLEAN NOT NULL DEFAULT FALSE,
 
@@ -111,25 +98,25 @@ CREATE TABLE IF NOT EXISTS participacion (
         ON DELETE RESTRICT
         ON UPDATE CASCADE,
 
-    CONSTRAINT fk_participacion_socia
-        FOREIGN KEY (documento_socia)
-        REFERENCES socia(documento)
+    CONSTRAINT fk_participacion_socio
+        FOREIGN KEY (documento_socio)
+        REFERENCES socio(documento)
         ON DELETE RESTRICT
         ON UPDATE CASCADE,
 
     CONSTRAINT chk_participacion_persona
         CHECK (
             (
-                documento_socia IS NOT NULL
+                documento_socio IS NOT NULL
                 AND nombre_invitada IS NULL
             )
             OR
             (
-                documento_socia IS NULL
+                documento_socio IS NULL
                 AND nombre_invitada IS NOT NULL
             )
         ),
 
-    CONSTRAINT uq_partida_socia
-        UNIQUE (id_partida, documento_socia)
+    CONSTRAINT uq_partida_socio
+        UNIQUE (id_partida, documento_socio)
 ) ENGINE=InnoDB;

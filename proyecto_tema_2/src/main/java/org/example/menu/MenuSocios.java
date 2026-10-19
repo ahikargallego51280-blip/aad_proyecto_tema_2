@@ -1,31 +1,29 @@
 
 package org.example.menu;
 
-import org.example.dao.SociaDAO;
-import org.example.model.Socia;
+import org.example.dao.SocioDAO;
+import org.example.model.Socio;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-public class MenuSocias {
+public class MenuSocios {
 
     private final Scanner sc = new Scanner(System.in);
-    private final SociaDAO dao = new SociaDAO();
+    private final SocioDAO dao = new SocioDAO();
 
     public void mostrar() {
         int opcion;
 
         do {
-            System.out.println("\n╔══════════════════════════════════════╗");
-            System.out.println("║          👥 GESTIÓN DE SOCIAS        ║");
-            System.out.println("╚══════════════════════════════════════╝");
-            System.out.println("1. ➕ Registrar socia");
-            System.out.println("2. 📋 Listar socias");
-            System.out.println("3. ✏️ Modificar socia");
-            System.out.println("4. 🔴 Dar de baja socia");
-            System.out.println("0. ↩️ Volver al menú principal");
-            System.out.print("👉 Opción: ");
+            System.out.println("\nMENÚ DE SOCIOS");
+            System.out.println("1. Registrar socio");
+            System.out.println("2. Listar socios");
+            System.out.println("3. Modificar socio");
+            System.out.println("4. Dar de baja socio");
+            System.out.println("0. Volver al menú principal");
+            System.out.print("Opción: ");
 
             opcion = leerEntero();
 
@@ -35,21 +33,20 @@ public class MenuSocias {
                     case 2 -> listar();
                     case 3 -> modificar();
                     case 4 -> darDeBaja();
-                    case 0 -> System.out.println("↩️ Volviendo...");
-                    default -> System.out.println("❌ Opción no válida.");
+                    case 0 -> System.out.println("Volviendo al menú principal...");
+                    default -> System.out.println("Opción no válida.");
                 }
             } catch (SQLException e) {
-                System.out.println("❌ Error de base de datos: "
-                        + e.getMessage());
+                System.out.println("Error de base de datos: " + e.getMessage());
             }
 
         } while (opcion != 0);
     }
 
     private void registrar() throws SQLException {
-        System.out.println("\n➕ REGISTRAR SOCIA");
+        System.out.println("\nREGISTRAR SOCIO");
 
-        System.out.print("Documento: ");
+        System.out.print("DNI/NIE/Pasaporte: ");
         String documento = sc.nextLine().trim();
 
         System.out.print("Nombre: ");
@@ -69,11 +66,11 @@ public class MenuSocias {
 
         if (documento.isEmpty() || nombre.isEmpty()
                 || apellidos.isEmpty() || edad < 0) {
-            System.out.println("❌ Revisa los datos obligatorios y la edad.");
+            System.out.println("Revisa los datos obligatorios y la edad.");
             return;
         }
 
-        Socia socia = new Socia(
+        Socio socio = new Socio(
                 documento,
                 nombre,
                 apellidos,
@@ -83,34 +80,34 @@ public class MenuSocias {
                 true
         );
 
-        if (dao.insertar(socia)) {
-            System.out.println("✅ Socia registrada correctamente.");
+        if (dao.insertar(socio)) {
+            System.out.println("Socio registrado correctamente.");
+        } else {
+            System.out.println("No se ha podido registrar el socio.");
         }
     }
 
     private void listar() throws SQLException {
-        System.out.println("\n📋 LISTADO DE SOCIAS");
+        List<Socio> socios = dao.listarTodas();
 
-        List<Socia> socias = dao.listarTodas();
-
-        if (socias.isEmpty()) {
-            System.out.println("📭 No hay socias registradas.");
+        if (socios.isEmpty()) {
+            System.out.println("No hay socios registrados.");
             return;
         }
 
-        for (Socia socia : socias) {
-            System.out.println("------------------------------");
-            System.out.println(socia);
+        System.out.println("\nLISTADO DE SOCIOS");
+
+        for (Socio socio : socios) {
+            System.out.println(socio);
         }
 
-        System.out.println("------------------------------");
-        System.out.println("Total: " + socias.size());
+        System.out.println("Total de socios: " + socios.size());
     }
 
     private void modificar() throws SQLException {
-        System.out.println("\n✏️ MODIFICAR SOCIA");
+        System.out.println("\nMODIFICAR SOCIO");
 
-        System.out.print("Documento de la socia: ");
+        System.out.print("Documento del socio: ");
         String documento = sc.nextLine().trim();
 
         System.out.print("Nuevo nombre: ");
@@ -128,50 +125,55 @@ public class MenuSocias {
         System.out.print("Nuevo email (opcional): ");
         String email = sc.nextLine().trim();
 
-        System.out.print("¿Está activa? (s/n): ");
-        boolean activa = sc.nextLine().trim().equalsIgnoreCase("s");
+        System.out.print("¿Está activo? (s/n): ");
+        boolean activo = sc.nextLine().trim().equalsIgnoreCase("s");
 
         if (documento.isEmpty() || nombre.isEmpty()
                 || apellidos.isEmpty() || edad < 0) {
-            System.out.println("❌ Datos no válidos.");
+            System.out.println("Datos no válidos.");
             return;
         }
 
-        Socia socia = new Socia(
+        Socio socio = new Socio(
                 documento,
                 nombre,
                 apellidos,
                 telefono.isEmpty() ? null : telefono,
                 edad,
                 email.isEmpty() ? null : email,
-                activa
+                activo
         );
 
-        if (dao.actualizar(socia)) {
-            System.out.println("✅ Socia modificada.");
+        if (dao.actualizar(socio)) {
+            System.out.println("Socio modificado correctamente.");
         } else {
-            System.out.println("🔎 No existe una socia con ese documento.");
+            System.out.println("No existe un socio con ese documento.");
         }
     }
 
     private void darDeBaja() throws SQLException {
-        System.out.println("\n🔴 DAR DE BAJA SOCIA");
+        System.out.println("\nDAR DE BAJA SOCIO");
 
-        System.out.print("Documento de la socia: ");
+        System.out.print("Documento del socio: ");
         String documento = sc.nextLine().trim();
+
+        if (documento.isEmpty()) {
+            System.out.println("El documento no puede estar vacío.");
+            return;
+        }
 
         System.out.print("¿Confirmas la baja? (s/n): ");
         String confirmacion = sc.nextLine().trim();
 
         if (!confirmacion.equalsIgnoreCase("s")) {
-            System.out.println("↩️ Operación cancelada.");
+            System.out.println("Operación cancelada.");
             return;
         }
 
         if (dao.darDeBaja(documento)) {
-            System.out.println("✅ Socia dada de baja.");
+            System.out.println("Socio dado de baja correctamente.");
         } else {
-            System.out.println("🔎 No existe una socia con ese documento.");
+            System.out.println("No existe un socio con ese documento.");
         }
     }
 
@@ -182,7 +184,7 @@ public class MenuSocias {
             try {
                 return Integer.parseInt(entrada);
             } catch (NumberFormatException e) {
-                System.out.print("❌ Introduce un número válido: ");
+                System.out.print("Introduce un número válido: ");
             }
         }
     }
