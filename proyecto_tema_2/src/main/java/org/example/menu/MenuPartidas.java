@@ -1,4 +1,3 @@
-
 package org.example.menu;
 
 import org.example.dao.JuegoDAO;
@@ -35,19 +34,23 @@ public class MenuPartidas {
             opcion = leerEntero();
 
             try {
-                switch (opcion) {
-                    case 1 -> crear();
-                    case 2 -> listar();
-                    case 3 -> modificar();
-                    case 4 -> cancelar();
-                    case 5 -> buscar();
-                    case 0 -> System.out.println(
-                            "Volviendo al menú principal...");
-                    default -> System.out.println("Opción no válida.");
+                if (opcion == 1) {
+                    crear();
+                } else if (opcion == 2) {
+                    listar();
+                } else if (opcion == 3) {
+                    modificar();
+                } else if (opcion == 4) {
+                    cancelar();
+                } else if (opcion == 5) {
+                    buscar();
+                } else if (opcion == 0) {
+                    System.out.println("Volviendo al menú principal...");
+                } else {
+                    System.out.println("Opción no válida.");
                 }
             } catch (SQLException e) {
-                System.out.println(
-                        "Error de base de datos: " + e.getMessage());
+                System.out.println("Error de base de datos: " + e.getMessage());
             }
 
         } while (opcion != 0);
@@ -61,8 +64,7 @@ public class MenuPartidas {
         Juego juego = juegoDAO.buscarPorId(idJuego);
 
         if (juego == null || !juego.isActivo()) {
-            System.out.println(
-                    "El juego no existe o está dado de baja.");
+            System.out.println("El juego no existe o está dado de baja.");
             return;
         }
 
@@ -90,10 +92,9 @@ public class MenuPartidas {
 
         if (jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
-            System.out.println(
-                    "El número de jugadores debe estar entre "
-                            + juego.getJugadoresMin() + " y "
-                            + juego.getJugadoresMax() + ".");
+            System.out.println("El número de jugadores debe estar entre "
+                    + juego.getJugadoresMin() + " y "
+                    + juego.getJugadoresMax() + ".");
             return;
         }
 
@@ -125,34 +126,30 @@ public class MenuPartidas {
         int opcion = leerEntero();
         List<Partida> partidas;
 
-        switch (opcion) {
-            case 1 -> {
-                System.out.print("ID del juego: ");
-                int idJuego = leerEntero();
+        if (opcion == 1) {
+            System.out.print("ID del juego: ");
+            int idJuego = leerEntero();
 
-                if (idJuego <= 0) {
-                    System.out.println("El ID debe ser mayor que cero.");
-                    return;
-                }
-
-                partidas = partidaDAO.buscarPorJuego(idJuego);
-            }
-
-            case 2 -> {
-                System.out.print("Fecha (AAAA-MM-DD): ");
-                LocalDate fecha = leerFecha();
-
-                if (fecha == null) {
-                    return;
-                }
-
-                partidas = partidaDAO.buscarPorFecha(fecha);
-            }
-
-            default -> {
-                System.out.println("Opción no válida.");
+            if (idJuego <= 0) {
+                System.out.println("El ID debe ser mayor que cero.");
                 return;
             }
+
+            partidas = partidaDAO.buscarPorJuego(idJuego);
+
+        } else if (opcion == 2) {
+            System.out.print("Fecha (AAAA-MM-DD): ");
+            LocalDate fecha = leerFecha();
+
+            if (fecha == null) {
+                return;
+            }
+
+            partidas = partidaDAO.buscarPorFecha(fecha);
+
+        } else {
+            System.out.println("Opción no válida.");
+            return;
         }
 
         mostrarResultados(partidas);
@@ -171,8 +168,7 @@ public class MenuPartidas {
             System.out.println(partida);
         }
 
-        System.out.println(
-                "Total de partidas: " + partidas.size());
+        System.out.println("Total de partidas: " + partidas.size());
     }
 
     // Modificar una partida
@@ -199,9 +195,8 @@ public class MenuPartidas {
 
         if (juego == null || !juego.isActivo()
                 || !"DISPONIBLE".equalsIgnoreCase(juego.getEstado())) {
-            System.out.println(
-                    "El juego no existe, no está activo "
-                            + "o no está disponible.");
+            System.out.println("El juego no existe, no está activo "
+                    + "o no está disponible.");
             return;
         }
 
@@ -224,10 +219,9 @@ public class MenuPartidas {
 
         if (jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
-            System.out.println(
-                    "El número de jugadores debe estar entre "
-                            + juego.getJugadoresMin() + " y "
-                            + juego.getJugadoresMax() + ".");
+            System.out.println("El número de jugadores debe estar entre "
+                    + juego.getJugadoresMin() + " y "
+                    + juego.getJugadoresMax() + ".");
             return;
         }
 
@@ -291,8 +285,7 @@ public class MenuPartidas {
         try {
             return LocalDate.parse(sc.nextLine().trim());
         } catch (DateTimeParseException e) {
-            System.out.println(
-                    "Fecha no válida. Usa el formato AAAA-MM-DD.");
+            System.out.println("Fecha no válida. Usa el formato AAAA-MM-DD.");
             return null;
         }
     }
@@ -301,8 +294,7 @@ public class MenuPartidas {
         try {
             return LocalTime.parse(sc.nextLine().trim());
         } catch (DateTimeParseException e) {
-            System.out.println(
-                    "Hora no válida. Usa el formato HH:MM.");
+            System.out.println("Hora no válida. Usa el formato HH:MM.");
             return null;
         }
     }

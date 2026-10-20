@@ -120,3 +120,15 @@ CREATE TABLE IF NOT EXISTS participacion (
     CONSTRAINT uq_partida_socio
         UNIQUE (id_partida, documento_socio)
 ) ENGINE=InnoDB;
+
+INSERT INTO asociacion (nombre, cif, direccion, telefono, email)
+SELECT
+    'Asociacion Juegos de Charles',
+    'G01020304',
+    'Calle Inventada 67',
+    '676677667',
+    'charles@gmail.com'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM asociacion
+);

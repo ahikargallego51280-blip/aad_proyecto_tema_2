@@ -1,4 +1,3 @@
-
 package org.example.menu;
 
 import org.example.dao.JuegoDAO;
@@ -32,15 +31,22 @@ public class MenuJuegos {
             opcion = leerEntero();
 
             try {
-                switch (opcion) {
-                    case 1 -> registrar();
-                    case 2 -> listar();
-                    case 3 -> buscar();
-                    case 4 -> modificar();
-                    case 5 -> darDeBaja();
-                    case 0 -> System.out.println("Volviendo al menú principal...");
-                    default -> System.out.println("Opción no válida.");
+                if (opcion == 1) {
+                    registrar();
+                } else if (opcion == 2) {
+                    listar();
+                } else if (opcion == 3) {
+                    buscar();
+                } else if (opcion == 4) {
+                    modificar();
+                } else if (opcion == 5) {
+                    darDeBaja();
+                } else if (opcion == 0) {
+                    System.out.println("Volviendo al menú principal...");
+                } else {
+                    System.out.println("Opción no válida.");
                 }
+
             } catch (SQLException e) {
                 System.out.println("Error de base de datos: " + e.getMessage());
             }
@@ -163,7 +169,6 @@ public class MenuJuegos {
         System.out.println("Total de juegos: " + juegos.size());
     }
 
-
     private void buscar() throws SQLException {
         System.out.println("\nBUSCAR JUEGO");
         System.out.println("1. Buscar por ID");
@@ -175,49 +180,44 @@ public class MenuJuegos {
         int opcion = leerEntero();
         List<Juego> juegos = null;
 
-        switch (opcion) {
-            case 1 -> {
-                System.out.print("ID del juego: ");
-                int id = leerEntero();
+        if (opcion == 1) {
+            System.out.print("ID del juego: ");
+            int id = leerEntero();
 
-                Juego juego = dao.buscarPorId(id);
+            Juego juego = dao.buscarPorId(id);
 
-                if (juego == null) {
-                    System.out.println("No se ha encontrado ese juego.");
-                } else {
-                    System.out.println(juego);
-                }
+            if (juego == null) {
+                System.out.println("No se ha encontrado ese juego.");
+            } else {
+                System.out.println(juego);
+            }
+
+            return;
+
+        } else if (opcion == 2) {
+            System.out.print("Nombre del juego: ");
+            String nombre = sc.nextLine().trim();
+            juegos = dao.buscarPorNombre(nombre);
+
+        } else if (opcion == 3) {
+            System.out.print("Temática: ");
+            String tematica = sc.nextLine().trim();
+            juegos = dao.buscarPorTematica(tematica);
+
+        } else if (opcion == 4) {
+            System.out.print("Número de jugadores: ");
+            int jugadores = leerEntero();
+
+            if (jugadores < 1) {
+                System.out.println("El número debe ser mayor que cero.");
                 return;
             }
 
-            case 2 -> {
-                System.out.print("Nombre del juego: ");
-                String nombre = sc.nextLine().trim();
-                juegos = dao.buscarPorNombre(nombre);
-            }
+            juegos = dao.buscarPorNumeroJugadores(jugadores);
 
-            case 3 -> {
-                System.out.print("Temática: ");
-                String tematica = sc.nextLine().trim();
-                juegos = dao.buscarPorTematica(tematica);
-            }
-
-            case 4 -> {
-                System.out.print("Número de jugadores: ");
-                int jugadores = leerEntero();
-
-                if (jugadores < 1) {
-                    System.out.println("El número debe ser mayor que cero.");
-                    return;
-                }
-
-                juegos = dao.buscarPorNumeroJugadores(jugadores);
-            }
-
-            default -> {
-                System.out.println("Opción no válida.");
-                return;
-            }
+        } else {
+            System.out.println("Opción no válida.");
+            return;
         }
 
         if (juegos.isEmpty()) {
@@ -230,7 +230,6 @@ public class MenuJuegos {
             System.out.println("Total de juegos encontrados: " + juegos.size());
         }
     }
-
 
     private void modificar() throws SQLException {
         System.out.print("ID del juego: ");

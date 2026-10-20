@@ -1,14 +1,11 @@
-
 package org.example.menu;
 
-import org.example.dao.AsociacionDAO;
 import org.example.dao.SocioDAO;
 import org.example.dao.JuegoDAO;
 import org.example.dao.PartidaDAO;
 import org.example.export.json.ExportadorJSON;
 import org.example.export.xml.ExportadorXML;
 
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MenuPrincipal {
@@ -31,7 +28,7 @@ public class MenuPrincipal {
             System.out.println("4. Gestion de participantes");
             System.out.println("5. Exportar datos JSON");
             System.out.println("6. Informacion de la base de datos");
-            System.out.println("7. Informacion de la asociacion");
+            System.out.println("7. Gestion de la asociacion");
             System.out.println("8. Exportar datos XML");
             System.out.println("0. Salir");
 
@@ -51,7 +48,7 @@ public class MenuPrincipal {
 
                 case 6 -> new MenuBaseDatos().mostrar();
 
-                case 7 -> mostrarInformacion();
+                case 7 -> new MenuAsociacion().mostrar();
 
                 case 8 -> exportarXML();
 
@@ -148,31 +145,6 @@ public class MenuPrincipal {
         } catch (Exception e) {
             System.out.println("No se pudieron exportar los datos XML.");
             System.out.println("Motivo: " + e.getMessage());
-        }
-    }
-
-    private void mostrarInformacion() {
-        AsociacionDAO dao = new AsociacionDAO();
-
-        try {
-            var asociacion = dao.obtener();
-
-            if (asociacion == null) {
-                System.out.println("No hay datos de la asociacion.");
-                return;
-            }
-
-            System.out.println();
-            System.out.println("INFORMACION DE LA ASOCIACION");
-            System.out.println("Nombre: " + asociacion.getNombre());
-            System.out.println("CIF: " + asociacion.getCif());
-            System.out.println("Direccion: " + asociacion.getDireccion());
-            System.out.println("Telefono: " + asociacion.getTelefono());
-            System.out.println("Email: " + asociacion.getEmail());
-
-        } catch (SQLException e) {
-            System.out.println("Error al consultar la asociacion.");
-            System.out.println(e.getMessage());
         }
     }
 
