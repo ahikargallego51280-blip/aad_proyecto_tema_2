@@ -161,4 +161,85 @@ public class JuegoDAO {
                 rs.getBoolean("activo")
         );
     }
+
+    // BUSCADORES AVANZADOS
+    public List<Juego> buscarPorNombre(String nombre) throws SQLException {
+        List<Juego> juegos = new ArrayList<>();
+
+        String sql = """
+            SELECT *
+            FROM juego
+            WHERE LOWER(nombre) LIKE LOWER(?)
+            ORDER BY nombre
+            """;
+
+        try (Connection con = Conexion.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + nombre.trim() + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    juegos.add(mapearJuego(rs));
+                }
+            }
+        }
+
+        return juegos;
+    }
+
+    public List<Juego> buscarPorTematica(String tematica) throws SQLException {
+        List<Juego> juegos = new ArrayList<>();
+
+        String sql = """
+            SELECT *
+            FROM juego
+            WHERE LOWER(tematica) LIKE LOWER(?)
+            ORDER BY nombre
+            """;
+
+        try (Connection con = Conexion.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + tematica.trim() + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    juegos.add(mapearJuego(rs));
+                }
+            }
+        }
+
+        return juegos;
+    }
+
+    public List<Juego> buscarPorNumeroJugadores(int numeroJugadores)
+            throws SQLException {
+
+        List<Juego> juegos = new ArrayList<>();
+
+        String sql = """
+            SELECT *
+            FROM juego
+            WHERE jugadores_min <= ?
+              AND jugadores_max >= ?
+            ORDER BY nombre
+            """;
+
+        try (Connection con = Conexion.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, numeroJugadores);
+            ps.setInt(2, numeroJugadores);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    juegos.add(mapearJuego(rs));
+                }
+            }
+        }
+
+        return juegos;
+    }
+
 }

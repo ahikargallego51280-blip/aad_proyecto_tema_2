@@ -115,4 +115,59 @@ public class PartidaDAO {
                 rs.getBoolean("activa")
         );
     }
+
+    // BUSCADORES AVANZADOS
+
+    public List<Partida> buscarPorJuego(int idJuego) throws SQLException {
+        List<Partida> partidas = new ArrayList<>();
+
+        String sql = """
+            SELECT *
+            FROM partida
+            WHERE id_juego = ?
+            ORDER BY fecha, hora
+            """;
+
+        try (Connection conn = Conexion.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, idJuego);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    partidas.add(mapearPartida(rs));
+                }
+            }
+        }
+
+        return partidas;
+    }
+
+    public List<Partida> buscarPorFecha(
+            java.time.LocalDate fecha) throws SQLException {
+
+        List<Partida> partidas = new ArrayList<>();
+
+        String sql = """
+            SELECT *
+            FROM partida
+            WHERE fecha = ?
+            ORDER BY hora
+            """;
+
+        try (Connection conn = Conexion.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setDate(1, Date.valueOf(fecha));
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    partidas.add(mapearPartida(rs));
+                }
+            }
+        }
+
+        return partidas;
+    }
+
 }

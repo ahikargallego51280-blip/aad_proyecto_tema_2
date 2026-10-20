@@ -20,8 +20,9 @@ public class MenuSocios {
             System.out.println("\nMENÚ DE SOCIOS");
             System.out.println("1. Registrar socio");
             System.out.println("2. Listar socios");
-            System.out.println("3. Modificar socio");
-            System.out.println("4. Dar de baja socio");
+            System.out.println("3. Buscar socio");
+            System.out.println("4. Modificar socio");
+            System.out.println("5. Dar de baja socio");
             System.out.println("0. Volver al menú principal");
             System.out.print("Opción: ");
 
@@ -31,18 +32,22 @@ public class MenuSocios {
                 switch (opcion) {
                     case 1 -> registrar();
                     case 2 -> listar();
-                    case 3 -> modificar();
-                    case 4 -> darDeBaja();
-                    case 0 -> System.out.println("Volviendo al menú principal...");
+                    case 3 -> buscar();
+                    case 4 -> modificar();
+                    case 5 -> darDeBaja();
+                    case 0 -> System.out.println(
+                            "Volviendo al menú principal...");
                     default -> System.out.println("Opción no válida.");
                 }
             } catch (SQLException e) {
-                System.out.println("Error de base de datos: " + e.getMessage());
+                System.out.println(
+                        "Error de base de datos: " + e.getMessage());
             }
 
         } while (opcion != 0);
     }
 
+    // Registrar un socio
     private void registrar() throws SQLException {
         System.out.println("\nREGISTRAR SOCIO");
 
@@ -66,7 +71,8 @@ public class MenuSocios {
 
         if (documento.isEmpty() || nombre.isEmpty()
                 || apellidos.isEmpty() || edad < 0) {
-            System.out.println("Revisa los datos obligatorios y la edad.");
+            System.out.println(
+                    "Revisa los datos obligatorios y la edad.");
             return;
         }
 
@@ -87,6 +93,7 @@ public class MenuSocios {
         }
     }
 
+    // Listar todos los socios
     private void listar() throws SQLException {
         List<Socio> socios = dao.listarTodas();
 
@@ -104,6 +111,64 @@ public class MenuSocios {
         System.out.println("Total de socios: " + socios.size());
     }
 
+    // Buscar un socio por nombre o apellidos
+    private void buscar() throws SQLException {
+        System.out.println("\nBUSCAR SOCIO");
+        System.out.println("1. Buscar por nombre");
+        System.out.println("2. Buscar por apellidos");
+        System.out.print("Opción: ");
+
+        int opcion = leerEntero();
+        List<Socio> socios;
+
+        switch (opcion) {
+            case 1 -> {
+                System.out.print("Nombre: ");
+                String nombre = sc.nextLine().trim();
+
+                if (nombre.isEmpty()) {
+                    System.out.println(
+                            "El nombre no puede estar vacío.");
+                    return;
+                }
+
+                socios = dao.buscarPorNombre(nombre);
+            }
+
+            case 2 -> {
+                System.out.print("Apellidos: ");
+                String apellidos = sc.nextLine().trim();
+
+                if (apellidos.isEmpty()) {
+                    System.out.println(
+                            "Los apellidos no pueden estar vacíos.");
+                    return;
+                }
+
+                socios = dao.buscarPorApellidos(apellidos);
+            }
+
+            default -> {
+                System.out.println("Opción no válida.");
+                return;
+            }
+        }
+
+        if (socios.isEmpty()) {
+            System.out.println("No se han encontrado socios.");
+        } else {
+            System.out.println("\nRESULTADOS DE LA BÚSQUEDA");
+
+            for (Socio socio : socios) {
+                System.out.println(socio);
+            }
+
+            System.out.println(
+                    "Total de socios encontrados: " + socios.size());
+        }
+    }
+
+    // Modificar un socio
     private void modificar() throws SQLException {
         System.out.println("\nMODIFICAR SOCIO");
 
@@ -147,10 +212,12 @@ public class MenuSocios {
         if (dao.actualizar(socio)) {
             System.out.println("Socio modificado correctamente.");
         } else {
-            System.out.println("No existe un socio con ese documento.");
+            System.out.println(
+                    "No existe un socio con ese documento.");
         }
     }
 
+    // Dar de baja un socio
     private void darDeBaja() throws SQLException {
         System.out.println("\nDAR DE BAJA SOCIO");
 
@@ -158,7 +225,8 @@ public class MenuSocios {
         String documento = sc.nextLine().trim();
 
         if (documento.isEmpty()) {
-            System.out.println("El documento no puede estar vacío.");
+            System.out.println(
+                    "El documento no puede estar vacío.");
             return;
         }
 
@@ -171,12 +239,15 @@ public class MenuSocios {
         }
 
         if (dao.darDeBaja(documento)) {
-            System.out.println("Socio dado de baja correctamente.");
+            System.out.println(
+                    "Socio dado de baja correctamente.");
         } else {
-            System.out.println("No existe un socio con ese documento.");
+            System.out.println(
+                    "No existe un socio con ese documento.");
         }
     }
 
+    // Leer un número entero
     private int leerEntero() {
         while (true) {
             String entrada = sc.nextLine().trim();
@@ -184,7 +255,8 @@ public class MenuSocios {
             try {
                 return Integer.parseInt(entrada);
             } catch (NumberFormatException e) {
-                System.out.print("Introduce un número válido: ");
+                System.out.print(
+                        "Introduce un número válido: ");
             }
         }
     }
