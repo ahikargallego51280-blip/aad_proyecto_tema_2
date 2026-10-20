@@ -1,4 +1,4 @@
-package org.example.json;
+package org.example.export.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

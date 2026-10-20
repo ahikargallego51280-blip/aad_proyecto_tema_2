@@ -6,8 +6,7 @@ import java.sql.SQLException;
 
 public class Conexion {
 
-    private static final String URL =
-            "jdbc:mariadb://localhost:3306/asociacion_juegos";
+    private static final String URL = "jdbc:mariadb://localhost:3306/asociacion_juegos";
 
     private static final String USUARIO = "asociacion_app";
 

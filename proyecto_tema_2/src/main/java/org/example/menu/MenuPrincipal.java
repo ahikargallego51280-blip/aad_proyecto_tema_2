@@ -1,10 +1,12 @@
+
 package org.example.menu;
 
 import org.example.dao.AsociacionDAO;
 import org.example.dao.SocioDAO;
 import org.example.dao.JuegoDAO;
 import org.example.dao.PartidaDAO;
-import org.example.json.ExportadorJSON;
+import org.example.export.json.ExportadorJSON;
+import org.example.export.xml.ExportadorXML;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -30,6 +32,7 @@ public class MenuPrincipal {
             System.out.println("5. Exportar datos JSON");
             System.out.println("6. Informacion de la base de datos");
             System.out.println("7. Informacion de la asociacion");
+            System.out.println("8. Exportar datos XML");
             System.out.println("0. Salir");
 
             System.out.print("Selecciona una opcion: ");
@@ -49,6 +52,8 @@ public class MenuPrincipal {
                 case 6 -> new MenuBaseDatos().mostrar();
 
                 case 7 -> mostrarInformacion();
+
+                case 8 -> exportarXML();
 
                 case 0 -> System.out.println(
                         "Gracias por utilizar la aplicacion."
@@ -99,6 +104,49 @@ public class MenuPrincipal {
 
         } catch (Exception e) {
             System.out.println("No se pudieron exportar los datos.");
+            System.out.println("Motivo: " + e.getMessage());
+        }
+    }
+
+    private void exportarXML() {
+        ExportadorXML exportador = new ExportadorXML();
+
+        try {
+            System.out.println();
+            System.out.println("----- EXPORTAR DATOS XML -----");
+            System.out.println("1. Exportar socios");
+            System.out.println("2. Exportar juegos");
+            System.out.println("3. Exportar partidas");
+            System.out.println("0. Volver");
+            System.out.print("Selecciona una opcion: ");
+
+            int opcion = leerEntero();
+
+            switch (opcion) {
+                case 1 -> {
+                    SocioDAO dao = new SocioDAO();
+                    exportador.exportarSocios(dao.listarTodas());
+                }
+
+                case 2 -> {
+                    JuegoDAO dao = new JuegoDAO();
+                    exportador.exportarJuegos(dao.listarTodos());
+                }
+
+                case 3 -> {
+                    PartidaDAO dao = new PartidaDAO();
+                    exportador.exportarPartidas(dao.listarTodas());
+                }
+
+                case 0 -> System.out.println(
+                        "Volviendo al menu principal."
+                );
+
+                default -> System.out.println("Opcion no valida.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("No se pudieron exportar los datos XML.");
             System.out.println("Motivo: " + e.getMessage());
         }
     }
