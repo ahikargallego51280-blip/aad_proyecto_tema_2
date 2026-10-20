@@ -48,7 +48,6 @@ public class MenuJuegos {
         } while (opcion != 0);
     }
 
-    // Registrar un juego
     private void registrar() throws SQLException {
         System.out.println("\nREGISTRAR JUEGO");
 
@@ -147,7 +146,6 @@ public class MenuJuegos {
         }
     }
 
-    // Listar juegos
     private void listar() throws SQLException {
         System.out.println("\nLISTADO DE JUEGOS");
 
@@ -165,21 +163,75 @@ public class MenuJuegos {
         System.out.println("Total de juegos: " + juegos.size());
     }
 
-    // Buscar un juego por su ID
+
     private void buscar() throws SQLException {
-        System.out.print("ID del juego: ");
-        int id = leerEntero();
+        System.out.println("\nBUSCAR JUEGO");
+        System.out.println("1. Buscar por ID");
+        System.out.println("2. Buscar por nombre");
+        System.out.println("3. Buscar por temática");
+        System.out.println("4. Buscar por número de jugadores");
+        System.out.print("Opción: ");
 
-        Juego juego = dao.buscarPorId(id);
+        int opcion = leerEntero();
+        List<Juego> juegos = null;
 
-        if (juego == null) {
-            System.out.println("No se ha encontrado ese juego.");
+        switch (opcion) {
+            case 1 -> {
+                System.out.print("ID del juego: ");
+                int id = leerEntero();
+
+                Juego juego = dao.buscarPorId(id);
+
+                if (juego == null) {
+                    System.out.println("No se ha encontrado ese juego.");
+                } else {
+                    System.out.println(juego);
+                }
+                return;
+            }
+
+            case 2 -> {
+                System.out.print("Nombre del juego: ");
+                String nombre = sc.nextLine().trim();
+                juegos = dao.buscarPorNombre(nombre);
+            }
+
+            case 3 -> {
+                System.out.print("Temática: ");
+                String tematica = sc.nextLine().trim();
+                juegos = dao.buscarPorTematica(tematica);
+            }
+
+            case 4 -> {
+                System.out.print("Número de jugadores: ");
+                int jugadores = leerEntero();
+
+                if (jugadores < 1) {
+                    System.out.println("El número debe ser mayor que cero.");
+                    return;
+                }
+
+                juegos = dao.buscarPorNumeroJugadores(jugadores);
+            }
+
+            default -> {
+                System.out.println("Opción no válida.");
+                return;
+            }
+        }
+
+        if (juegos.isEmpty()) {
+            System.out.println("No se han encontrado juegos.");
         } else {
-            System.out.println(juego);
+            for (Juego juego : juegos) {
+                System.out.println(juego);
+            }
+
+            System.out.println("Total de juegos encontrados: " + juegos.size());
         }
     }
 
-    // Modificar un juego
+
     private void modificar() throws SQLException {
         System.out.print("ID del juego: ");
         int id = leerEntero();
@@ -301,7 +353,6 @@ public class MenuJuegos {
         }
     }
 
-    // Dar de baja un juego
     private void darDeBaja() throws SQLException {
         System.out.print("ID del juego: ");
         int id = leerEntero();
@@ -328,7 +379,6 @@ public class MenuJuegos {
         }
     }
 
-    // Leer un número entero
     private int leerEntero() {
         while (true) {
             String entrada = sc.nextLine().trim();
