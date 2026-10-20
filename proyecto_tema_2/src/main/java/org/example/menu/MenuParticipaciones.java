@@ -1,4 +1,3 @@
-
 package org.example.menu;
 
 import org.example.dao.JuegoDAO;
@@ -37,15 +36,22 @@ public class MenuParticipaciones {
             opcion = leerEntero();
 
             try {
-                switch (opcion) {
-                    case 1 -> inscribirSocio();
-                    case 2 -> inscribirInvitado();
-                    case 3 -> listarParticipantes();
-                    case 4 -> registrarGanador();
-                    case 5 -> retirarParticipante();
-                    case 0 -> System.out.println("Volviendo al menú principal...");
-                    default -> System.out.println("Opción no válida.");
+                if (opcion == 1) {
+                    inscribirSocio();
+                } else if (opcion == 2) {
+                    inscribirInvitado();
+                } else if (opcion == 3) {
+                    listarParticipantes();
+                } else if (opcion == 4) {
+                    registrarGanador();
+                } else if (opcion == 5) {
+                    retirarParticipante();
+                } else if (opcion == 0) {
+                    System.out.println("Volviendo al menú principal...");
+                } else {
+                    System.out.println("Opción no válida.");
                 }
+
             } catch (SQLException e) {
                 System.out.println("Error de base de datos: " + e.getMessage());
             }
@@ -53,7 +59,6 @@ public class MenuParticipaciones {
         } while (opcion != 0);
     }
 
-    // Inscribir un socio
     private void inscribirSocio() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = leerEntero();
@@ -82,7 +87,6 @@ public class MenuParticipaciones {
         }
     }
 
-    // Inscribir un invitado
     private void inscribirInvitado() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = leerEntero();
@@ -106,7 +110,6 @@ public class MenuParticipaciones {
         }
     }
 
-    // Comprobar la partida y las plazas disponibles
     private boolean comprobarPlaza(int idPartida) throws SQLException {
         Partida partida = partidaDAO.buscarPorId(idPartida);
 
@@ -134,7 +137,6 @@ public class MenuParticipaciones {
         return true;
     }
 
-    // Listar los participantes de una partida
     private void listarParticipantes() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = leerEntero();
@@ -172,7 +174,6 @@ public class MenuParticipaciones {
         System.out.println("Plazas restantes: " + plazasRestantes);
     }
 
-    // Registrar un ganador
     private void registrarGanador() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = leerEntero();
@@ -220,7 +221,6 @@ public class MenuParticipaciones {
         }
     }
 
-    // Retirar un participante
     private void retirarParticipante() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = leerEntero();
@@ -273,7 +273,6 @@ public class MenuParticipaciones {
         }
     }
 
-    // Buscar una participación por su ID
     private Participacion buscarParticipacion(
             List<Participacion> participantes, int id) {
 
@@ -286,7 +285,6 @@ public class MenuParticipaciones {
         return null;
     }
 
-    // Leer un número entero
     private int leerEntero() {
         while (true) {
             String entrada = sc.nextLine().trim();

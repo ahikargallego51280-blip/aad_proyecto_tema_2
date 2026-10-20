@@ -1,4 +1,3 @@
-
 package org.example.menu;
 
 import org.example.database.Conexion;
@@ -29,14 +28,25 @@ public class MenuBaseDatos {
             opcion = leerEntero();
 
             try {
-                switch (opcion) {
-                    case 1 -> mostrarConexion();
-                    case 2 -> listarTablas();
-                    case 3 -> mostrarEstructura();
-                    case 4 -> exportarMetadatos();
-                    case 0 -> System.out.println("Volviendo al menú principal...");
-                    default -> System.out.println("Opción no válida.");
+                if (opcion == 1) {
+                    mostrarConexion();
+
+                } else if (opcion == 2) {
+                    listarTablas();
+
+                } else if (opcion == 3) {
+                    mostrarEstructura();
+
+                } else if (opcion == 4) {
+                    exportarMetadatos();
+
+                } else if (opcion == 0) {
+                    System.out.println("Volviendo al menú principal...");
+
+                } else {
+                    System.out.println("Opción no válida.");
                 }
+
             } catch (SQLException e) {
                 System.out.println("Error de base de datos: " + e.getMessage());
             }
@@ -44,7 +54,6 @@ public class MenuBaseDatos {
         } while (opcion != 0);
     }
 
-    // Exportar metadatos a JSON
     private void exportarMetadatos() {
         try {
             ExportadorMetadatos exportador = new ExportadorMetadatos();
@@ -55,7 +64,6 @@ public class MenuBaseDatos {
         }
     }
 
-    // Mostrar información de la conexión
     private void mostrarConexion() throws SQLException {
         try (Connection conn = Conexion.conectar()) {
             DatabaseMetaData meta = conn.getMetaData();
@@ -70,7 +78,6 @@ public class MenuBaseDatos {
         }
     }
 
-    // Listar las tablas
     private void listarTablas() throws SQLException {
         try (Connection conn = Conexion.conectar()) {
             DatabaseMetaData meta = conn.getMetaData();
@@ -97,7 +104,6 @@ public class MenuBaseDatos {
         }
     }
 
-    // Mostrar columnas y claves primarias de una tabla
     private void mostrarEstructura() throws SQLException {
         System.out.print("Nombre de la tabla: ");
         String tabla = sc.nextLine().trim();
@@ -139,6 +145,7 @@ public class MenuBaseDatos {
                     String nombre = columnas.getString("COLUMN_NAME");
                     String tipo = columnas.getString("TYPE_NAME");
                     int tamano = columnas.getInt("COLUMN_SIZE");
+
                     boolean admiteNulos = columnas.getInt("NULLABLE")
                             == DatabaseMetaData.columnNullable;
 
@@ -168,8 +175,6 @@ public class MenuBaseDatos {
             }
         }
     }
-
-    // Leer una opción numérica
     private int leerEntero() {
         while (true) {
             String entrada = sc.nextLine().trim();

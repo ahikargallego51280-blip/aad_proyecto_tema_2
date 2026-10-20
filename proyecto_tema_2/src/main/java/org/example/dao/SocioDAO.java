@@ -120,4 +120,70 @@ public class SocioDAO {
             }
         }
     }
+
+    // BUSCADORES AVANZADOS
+
+    public List<Socio> buscarPorNombre(String nombre) throws SQLException {
+        List<Socio> socios = new ArrayList<>();
+
+        String sql = """
+            SELECT *
+            FROM socio
+            WHERE LOWER(nombre) LIKE LOWER(?)
+            ORDER BY apellidos, nombre
+            """;
+
+        try (Connection con = Conexion.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + nombre.trim() + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    socios.add(mapearSocio(rs));
+                }
+            }
+        }
+
+        return socios;
+    }
+
+    public List<Socio> buscarPorApellidos(String apellidos) throws SQLException {
+        List<Socio> socios = new ArrayList<>();
+
+        String sql = """
+            SELECT *
+            FROM socio
+            WHERE LOWER(apellidos) LIKE LOWER(?)
+            ORDER BY apellidos, nombre
+            """;
+
+        try (Connection con = Conexion.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + apellidos.trim() + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    socios.add(mapearSocio(rs));
+                }
+            }
+        }
+
+        return socios;
+    }
+
+    private Socio mapearSocio(ResultSet rs) throws SQLException {
+        return new Socio(
+                rs.getString("documento"),
+                rs.getString("nombre"),
+                rs.getString("apellidos"),
+                rs.getString("telefono"),
+                rs.getInt("edad"),
+                rs.getString("email"),
+                rs.getBoolean("activa")
+        );
+    }
+
+
 }

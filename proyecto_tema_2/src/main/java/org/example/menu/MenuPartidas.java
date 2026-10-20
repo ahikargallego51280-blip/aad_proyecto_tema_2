@@ -1,4 +1,3 @@
-
 package org.example.menu;
 
 import org.example.dao.JuegoDAO;
@@ -28,19 +27,27 @@ public class MenuPartidas {
             System.out.println("2. Listar partidas");
             System.out.println("3. Modificar partida");
             System.out.println("4. Cancelar partida");
+            System.out.println("5. Buscar partida");
             System.out.println("0. Volver al menú principal");
             System.out.print("Opción: ");
 
             opcion = leerEntero();
 
             try {
-                switch (opcion) {
-                    case 1 -> crear();
-                    case 2 -> listar();
-                    case 3 -> modificar();
-                    case 4 -> cancelar();
-                    case 0 -> System.out.println("Volviendo al menú principal...");
-                    default -> System.out.println("Opción no válida.");
+                if (opcion == 1) {
+                    crear();
+                } else if (opcion == 2) {
+                    listar();
+                } else if (opcion == 3) {
+                    modificar();
+                } else if (opcion == 4) {
+                    cancelar();
+                } else if (opcion == 5) {
+                    buscar();
+                } else if (opcion == 0) {
+                    System.out.println("Volviendo al menú principal...");
+                } else {
+                    System.out.println("Opción no válida.");
                 }
             } catch (SQLException e) {
                 System.out.println("Error de base de datos: " + e.getMessage());
@@ -85,11 +92,9 @@ public class MenuPartidas {
 
         if (jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
-            System.out.println(
-                    "El número de jugadores debe estar entre "
-                            + juego.getJugadoresMin() + " y "
-                            + juego.getJugadoresMax() + "."
-            );
+            System.out.println("El número de jugadores debe estar entre "
+                    + juego.getJugadoresMin() + " y "
+                    + juego.getJugadoresMax() + ".");
             return;
         }
 
@@ -108,12 +113,56 @@ public class MenuPartidas {
     private void listar() throws SQLException {
         List<Partida> partidas = partidaDAO.listarTodas();
 
-        if (partidas.isEmpty()) {
-            System.out.println("No hay partidas registradas.");
+        mostrarResultados(partidas);
+    }
+
+    // Buscar partidas por juego o por fecha
+    private void buscar() throws SQLException {
+        System.out.println("\nBUSCAR PARTIDA");
+        System.out.println("1. Buscar por ID del juego");
+        System.out.println("2. Buscar por fecha");
+        System.out.print("Opción: ");
+
+        int opcion = leerEntero();
+        List<Partida> partidas;
+
+        if (opcion == 1) {
+            System.out.print("ID del juego: ");
+            int idJuego = leerEntero();
+
+            if (idJuego <= 0) {
+                System.out.println("El ID debe ser mayor que cero.");
+                return;
+            }
+
+            partidas = partidaDAO.buscarPorJuego(idJuego);
+
+        } else if (opcion == 2) {
+            System.out.print("Fecha (AAAA-MM-DD): ");
+            LocalDate fecha = leerFecha();
+
+            if (fecha == null) {
+                return;
+            }
+
+            partidas = partidaDAO.buscarPorFecha(fecha);
+
+        } else {
+            System.out.println("Opción no válida.");
             return;
         }
 
-        System.out.println("\nLISTADO DE PARTIDAS");
+        mostrarResultados(partidas);
+    }
+
+    // Mostrar los resultados de una búsqueda o listado
+    private void mostrarResultados(List<Partida> partidas) {
+        if (partidas.isEmpty()) {
+            System.out.println("No se han encontrado partidas.");
+            return;
+        }
+
+        System.out.println("\nRESULTADOS");
 
         for (Partida partida : partidas) {
             System.out.println(partida);
@@ -146,9 +195,8 @@ public class MenuPartidas {
 
         if (juego == null || !juego.isActivo()
                 || !"DISPONIBLE".equalsIgnoreCase(juego.getEstado())) {
-            System.out.println(
-                    "El juego no existe, no está activo o no está disponible."
-            );
+            System.out.println("El juego no existe, no está activo "
+                    + "o no está disponible.");
             return;
         }
 
@@ -171,11 +219,9 @@ public class MenuPartidas {
 
         if (jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
-            System.out.println(
-                    "El número de jugadores debe estar entre "
-                            + juego.getJugadoresMin() + " y "
-                            + juego.getJugadoresMax() + "."
-            );
+            System.out.println("El número de jugadores debe estar entre "
+                    + juego.getJugadoresMin() + " y "
+                    + juego.getJugadoresMax() + ".");
             return;
         }
 
@@ -223,7 +269,6 @@ public class MenuPartidas {
         }
     }
 
-    // Leer un número entero
     private int leerEntero() {
         while (true) {
             String entrada = sc.nextLine().trim();
@@ -236,7 +281,6 @@ public class MenuPartidas {
         }
     }
 
-    // Leer una fecha
     private LocalDate leerFecha() {
         try {
             return LocalDate.parse(sc.nextLine().trim());
@@ -246,7 +290,6 @@ public class MenuPartidas {
         }
     }
 
-    // Leer una hora
     private LocalTime leerHora() {
         try {
             return LocalTime.parse(sc.nextLine().trim());
