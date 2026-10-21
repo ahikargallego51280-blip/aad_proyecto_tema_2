@@ -30,6 +30,7 @@ public class MenuPrincipal {
             System.out.println("6. Informacion de la base de datos");
             System.out.println("7. Gestion de la asociacion");
             System.out.println("8. Exportar datos XML");
+            System.out.println("9. Historial y estadísticas de un socio");
             System.out.println("0. Salir");
 
             System.out.print("Selecciona una opcion: ");
@@ -51,6 +52,8 @@ public class MenuPrincipal {
                 case 7 -> new MenuAsociacion().mostrar();
 
                 case 8 -> exportarXML();
+
+                case 9 -> new MenuHistorialSocio().mostrar();
 
                 case 0 -> System.out.println(
                         "Gracias por utilizar la aplicacion."
