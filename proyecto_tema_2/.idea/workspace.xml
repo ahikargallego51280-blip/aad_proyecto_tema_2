@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="-Closes #7&#10;&#10;Adición de la opcion de &quot;Históricos de socio&quot; en el menu principal y todas sus funcionalidades.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/docker/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/docker/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/database/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/database/Conexion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/MenuAsociacion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/MenuBaseDatos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/MenuJuegos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/MenuParticipaciones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/MenuPartidas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/MenuPrincipal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/MenuPrincipal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/MenuSocios.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

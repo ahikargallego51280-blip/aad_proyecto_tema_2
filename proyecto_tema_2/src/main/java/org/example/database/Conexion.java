@@ -20,11 +20,14 @@ public class Conexion {
     private static final String USUARIO = obtenerVariable("DB_USER", "root");
     private static final String PASSWORD = obtenerVariable("DB_PASSWORD", "");
 
-    private static String obtenerVariable(String nombre, String valorPorDefecto) {
-        String valor = System.getenv(nombre);
+    private static String obtenerVariable(
+            String nombre,
+            String valorPorDefecto) {
 
-        if (valor == null) {
-            valor = dotenv.get(nombre);
+        String valor = dotenv.get(nombre);
+
+        if (valor == null || valor.isBlank()) {
+            valor = System.getenv(nombre);
         }
 
         return valor != null ? valor : valorPorDefecto;
