@@ -288,3 +288,5 @@ WHERE j.nombre = 'Pandemic'
       tida = p.id_partida
         AND pa.nombre_invitada = 'Elena Invitada'
   );
+
+
