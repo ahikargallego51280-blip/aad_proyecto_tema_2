@@ -1,4 +1,4 @@
-package org.example.menu;
+package org.example.menu.Asociaciones;
 
 import org.example.dao.AsociacionDAO;
 import org.example.model.Asociacion;

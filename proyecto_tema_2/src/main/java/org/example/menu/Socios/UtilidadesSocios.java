@@ -1,56 +1,21 @@
-package org.example.menu;
+
+package org.example.menu.Socios;
 
 import org.example.dao.SocioDAO;
 import org.example.model.Socio;
+import org.example.menu.Utilidades.UtilidadesMenu;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-public class MenuSocios {
+public class UtilidadesSocios {
 
     private final Scanner sc = new Scanner(System.in);
     private final SocioDAO dao = new SocioDAO();
 
-    public void mostrar() {
-        int opcion;
-
-        do {
-            System.out.println("\nMENÚ DE SOCIOS");
-            System.out.println("1. Registrar socio");
-            System.out.println("2. Listar socios");
-            System.out.println("3. Buscar socio");
-            System.out.println("4. Modificar socio");
-            System.out.println("5. Dar de baja socio");
-            System.out.println("0. Volver al menú principal");
-            System.out.print("Opción: ");
-
-            opcion = leerEntero();
-
-            try {
-                if (opcion == 1) {
-                    registrar();
-                } else if (opcion == 2) {
-                    listar();
-                } else if (opcion == 3) {
-                    buscar();
-                } else if (opcion == 4) {
-                    modificar();
-                } else if (opcion == 5) {
-                    darDeBaja();
-                } else if (opcion == 0) {
-                    System.out.println("Volviendo al menú principal...");
-                } else {
-                    System.out.println("Opción no válida.");
-                }
-            } catch (SQLException e) {
-                System.out.println("Error de base de datos: " + e.getMessage());
-            }
-
-        } while (opcion != 0);
-    }
-
-    private void registrar() throws SQLException {
+    // Registrar un socio
+    public void registrar() throws SQLException {
         System.out.println("\nREGISTRAR SOCIO");
 
         System.out.print("DNI/NIE/Pasaporte: ");
@@ -66,7 +31,7 @@ public class MenuSocios {
         String telefono = sc.nextLine().trim();
 
         System.out.print("Edad: ");
-        int edad = leerEntero();
+        int edad = UtilidadesMenu.leerEntero();
 
         System.out.print("Email (opcional): ");
         String email = sc.nextLine().trim();
@@ -94,7 +59,8 @@ public class MenuSocios {
         }
     }
 
-    private void listar() throws SQLException {
+    // Listar todos los socios
+    public void listar() throws SQLException {
         List<Socio> socios = dao.listarTodas();
 
         if (socios.isEmpty()) {
@@ -111,13 +77,14 @@ public class MenuSocios {
         System.out.println("Total de socios: " + socios.size());
     }
 
-    private void buscar() throws SQLException {
+    // Buscar socios por nombre o apellidos
+    public void buscar() throws SQLException {
         System.out.println("\nBUSCAR SOCIO");
         System.out.println("1. Buscar por nombre");
         System.out.println("2. Buscar por apellidos");
         System.out.print("Opción: ");
 
-        int opcion = leerEntero();
+        int opcion = UtilidadesMenu.leerEntero();
         List<Socio> socios;
 
         if (opcion == 1) {
@@ -156,11 +123,14 @@ public class MenuSocios {
                 System.out.println(socio);
             }
 
-            System.out.println("Total de socios encontrados: " + socios.size());
+            System.out.println(
+                    "Total de socios encontrados: " + socios.size()
+            );
         }
     }
 
-    private void modificar() throws SQLException {
+    // Modificar un socio
+    public void modificar() throws SQLException {
         System.out.println("\nMODIFICAR SOCIO");
 
         System.out.print("Documento del socio: ");
@@ -176,7 +146,7 @@ public class MenuSocios {
         String telefono = sc.nextLine().trim();
 
         System.out.print("Nueva edad: ");
-        int edad = leerEntero();
+        int edad = UtilidadesMenu.leerEntero();
 
         System.out.print("Nuevo email (opcional): ");
         String email = sc.nextLine().trim();
@@ -207,7 +177,8 @@ public class MenuSocios {
         }
     }
 
-    private void darDeBaja() throws SQLException {
+    // Dar de baja un socio
+    public void darDeBaja() throws SQLException {
         System.out.println("\nDAR DE BAJA SOCIO");
 
         System.out.print("Documento del socio: ");
@@ -230,18 +201,6 @@ public class MenuSocios {
             System.out.println("Socio dado de baja correctamente.");
         } else {
             System.out.println("No existe un socio con ese documento.");
-        }
-    }
-
-    private int leerEntero() {
-        while (true) {
-            String entrada = sc.nextLine().trim();
-
-            try {
-                return Integer.parseInt(entrada);
-            } catch (NumberFormatException e) {
-                System.out.print("Introduce un número válido: ");
-            }
         }
     }
 }

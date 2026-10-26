@@ -1,7 +1,9 @@
-package org.example.menu;
+
+package org.example.menu.Partidas;
 
 import org.example.dao.JuegoDAO;
 import org.example.dao.PartidaDAO;
+import org.example.menu.Utilidades.UtilidadesMenu;
 import org.example.model.Juego;
 import org.example.model.Partida;
 
@@ -12,54 +14,16 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Scanner;
 
-public class MenuPartidas {
+public class UtilidadesPartidas {
 
     private final Scanner sc = new Scanner(System.in);
     private final PartidaDAO partidaDAO = new PartidaDAO();
     private final JuegoDAO juegoDAO = new JuegoDAO();
 
-    public void mostrar() {
-        int opcion;
-
-        do {
-            System.out.println("\nMENÚ DE PARTIDAS");
-            System.out.println("1. Crear partida");
-            System.out.println("2. Listar partidas");
-            System.out.println("3. Modificar partida");
-            System.out.println("4. Cancelar partida");
-            System.out.println("5. Buscar partida");
-            System.out.println("0. Volver al menú principal");
-            System.out.print("Opción: ");
-
-            opcion = leerEntero();
-
-            try {
-                if (opcion == 1) {
-                    crear();
-                } else if (opcion == 2) {
-                    listar();
-                } else if (opcion == 3) {
-                    modificar();
-                } else if (opcion == 4) {
-                    cancelar();
-                } else if (opcion == 5) {
-                    buscar();
-                } else if (opcion == 0) {
-                    System.out.println("Volviendo al menú principal...");
-                } else {
-                    System.out.println("Opción no válida.");
-                }
-            } catch (SQLException e) {
-                System.out.println("Error de base de datos: " + e.getMessage());
-            }
-
-        } while (opcion != 0);
-    }
-
     // Crear una partida
-    private void crear() throws SQLException {
+    public void crear() throws SQLException {
         System.out.print("ID del juego: ");
-        int idJuego = leerEntero();
+        int idJuego = UtilidadesMenu.leerEntero();
 
         Juego juego = juegoDAO.buscarPorId(idJuego);
 
@@ -88,7 +52,7 @@ public class MenuPartidas {
         }
 
         System.out.print("Número de jugadores deseados: ");
-        int jugadores = leerEntero();
+        int jugadores = UtilidadesMenu.leerEntero();
 
         if (jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
@@ -110,25 +74,25 @@ public class MenuPartidas {
     }
 
     // Listar todas las partidas
-    private void listar() throws SQLException {
+    public void listar() throws SQLException {
         List<Partida> partidas = partidaDAO.listarTodas();
 
         mostrarResultados(partidas);
     }
 
     // Buscar partidas por juego o por fecha
-    private void buscar() throws SQLException {
+    public void buscar() throws SQLException {
         System.out.println("\nBUSCAR PARTIDA");
         System.out.println("1. Buscar por ID del juego");
         System.out.println("2. Buscar por fecha");
         System.out.print("Opción: ");
 
-        int opcion = leerEntero();
+        int opcion = UtilidadesMenu.leerEntero();
         List<Partida> partidas;
 
         if (opcion == 1) {
             System.out.print("ID del juego: ");
-            int idJuego = leerEntero();
+            int idJuego = UtilidadesMenu.leerEntero();
 
             if (idJuego <= 0) {
                 System.out.println("El ID debe ser mayor que cero.");
@@ -155,7 +119,7 @@ public class MenuPartidas {
         mostrarResultados(partidas);
     }
 
-    // Mostrar los resultados de una búsqueda o listado
+    // Mostrar los resultados de una búsqueda
     private void mostrarResultados(List<Partida> partidas) {
         if (partidas.isEmpty()) {
             System.out.println("No se han encontrado partidas.");
@@ -172,9 +136,9 @@ public class MenuPartidas {
     }
 
     // Modificar una partida
-    private void modificar() throws SQLException {
+    public void modificar() throws SQLException {
         System.out.print("ID de la partida: ");
-        int id = leerEntero();
+        int id = UtilidadesMenu.leerEntero();
 
         Partida partida = partidaDAO.buscarPorId(id);
 
@@ -189,7 +153,7 @@ public class MenuPartidas {
         }
 
         System.out.print("Nuevo ID del juego: ");
-        int idJuego = leerEntero();
+        int idJuego = UtilidadesMenu.leerEntero();
 
         Juego juego = juegoDAO.buscarPorId(idJuego);
 
@@ -215,7 +179,7 @@ public class MenuPartidas {
         }
 
         System.out.print("Nuevo número de jugadores deseados: ");
-        int jugadores = leerEntero();
+        int jugadores = UtilidadesMenu.leerEntero();
 
         if (jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
@@ -238,9 +202,9 @@ public class MenuPartidas {
     }
 
     // Cancelar una partida
-    private void cancelar() throws SQLException {
+    public void cancelar() throws SQLException {
         System.out.print("ID de la partida: ");
-        int id = leerEntero();
+        int id = UtilidadesMenu.leerEntero();
 
         Partida partida = partidaDAO.buscarPorId(id);
 
@@ -269,18 +233,7 @@ public class MenuPartidas {
         }
     }
 
-    private int leerEntero() {
-        while (true) {
-            String entrada = sc.nextLine().trim();
-
-            try {
-                return Integer.parseInt(entrada);
-            } catch (NumberFormatException e) {
-                System.out.print("Introduce un número válido: ");
-            }
-        }
-    }
-
+    // Leer una fecha
     private LocalDate leerFecha() {
         try {
             return LocalDate.parse(sc.nextLine().trim());
@@ -290,6 +243,7 @@ public class MenuPartidas {
         }
     }
 
+    // Leer una hora
     private LocalTime leerHora() {
         try {
             return LocalTime.parse(sc.nextLine().trim());
