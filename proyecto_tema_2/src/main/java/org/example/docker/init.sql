@@ -285,6 +285,7 @@ WHERE j.nombre = 'Pandemic'
   AND p.hora = '18:00:00'
   AND NOT EXISTS (
       SELECT 1 FROM participacion pa
-      WHERE pa.id_partida = p.id_partida
+      WHERE pa.id_par
+      tida = p.id_partida
         AND pa.nombre_invitada = 'Elena Invitada'
   );
