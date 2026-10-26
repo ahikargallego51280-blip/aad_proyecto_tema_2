@@ -1,4 +1,4 @@
-package org.example.menu;
+package org.example.menu.MenuHistorial;
 
 import org.example.dao.ActividadSocioDAO;
 import org.example.dao.SocioDAO;
