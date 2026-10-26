@@ -1,9 +1,12 @@
+
 package org.example.menu.MenuHistorial;
 
 import org.example.dao.ActividadSocioDAO;
 import org.example.dao.SocioDAO;
 import org.example.model.ActividadSocio;
 import org.example.model.Socio;
+import org.example.menu.JSON.UtilidadesJSON;
+import org.example.menu.XML.UtilidadesXML;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -75,36 +78,35 @@ public class MenuHistorialSocio {
 
             System.out.println("Periodo: " + desde + " - " + hasta);
 
-            if (actividades.isEmpty()) {
-                System.out.println("No hay actividades en este periodo.");
-                return;
-            }
-
             int victorias = 0;
             int sinGanadorRegistrado = 0;
             int duracion = 0;
 
-            for (ActividadSocio a : actividades) {
-                System.out.println("\nJuego: " + a.getNombreJuego());
-                System.out.println("Tipo: " + a.getTipoJuego());
-                System.out.println("Fecha: " + a.getFecha());
-                System.out.println("Hora: " + a.getHora());
+            if (actividades.isEmpty()) {
+                System.out.println("No hay actividades en este periodo.");
+            } else {
+                for (ActividadSocio a : actividades) {
+                    System.out.println("\nJuego: " + a.getNombreJuego());
+                    System.out.println("Tipo: " + a.getTipoJuego());
+                    System.out.println("Fecha: " + a.getFecha());
+                    System.out.println("Hora: " + a.getHora());
 
-                if (a.isResultadoRegistrado()) {
-                    if (a.isGanadora()) {
-                        System.out.println("Resultado: Victoria");
-                        victorias++;
+                    if (a.isResultadoRegistrado()) {
+                        if (a.isGanadora()) {
+                            System.out.println("Resultado: Victoria");
+                            victorias++;
+                        } else {
+                            System.out.println("Resultado: No ganadora");
+                        }
                     } else {
-                        System.out.println("Resultado: No ganadora");
+                        System.out.println("Resultado: Sin ganador registrado");
+                        sinGanadorRegistrado++;
                     }
-                } else {
-                    System.out.println("Resultado: Sin ganador registrado");
-                    sinGanadorRegistrado++;
+
+                    duracion += a.getDuracionMinutos();
+
+                    System.out.println("--------------------");
                 }
-
-                duracion += a.getDuracionMinutos();
-
-                System.out.println("--------------------");
             }
 
             System.out.println("\n--- ESTADÍSTICAS DE LA SOCIA ---");
@@ -113,6 +115,26 @@ public class MenuHistorialSocio {
             System.out.println("Sin ganador registrado: " + sinGanadorRegistrado);
             System.out.println("Duración acumulada de los juegos: "
                     + duracion + " minutos");
+
+            System.out.println("\n¿Quieres exportar el historial?");
+            System.out.println("1. JSON");
+            System.out.println("2. XML");
+            System.out.println("0. No exportar");
+            System.out.print("Opción: ");
+
+            String formato = sc.nextLine();
+
+            if (formato.equals("1")) {
+                new UtilidadesJSON().exportarHistorial(
+                        socio.getDocumento(), desde, hasta);
+            } else if (formato.equals("2")) {
+                new UtilidadesXML().exportarHistorial(
+                        socio.getDocumento(), desde, hasta);
+            } else if (formato.equals("0")) {
+                System.out.println("No se exportará el historial.");
+            } else {
+                System.out.println("Opción no válida.");
+            }
 
         } catch (DateTimeParseException e) {
             System.out.println("Fecha incorrecta. Usa AAAA-MM-DD.");

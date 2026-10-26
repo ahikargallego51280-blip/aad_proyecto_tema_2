@@ -4,12 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Implementacion de estadisticas + cambios en el historial + MenuPrincipal">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/SocioTest.java" afterDir="false" />
+    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Extra: Implementacion de JUnit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Estadisticas/UtilidadesEstadisticas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/UtilidadesHistorial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorialSocio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/MenuHistorialSocio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/json/ExportadorJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/json/ExportadorJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Estadisticas/MenuEstadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Estadisticas/MenuEstadisticas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/JSON/UtilidadesJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/JSON/UtilidadesJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/MenuHistorialSocio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/MenuHistorialSocio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/XML/UtilidadesXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/XML/UtilidadesXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/export/json/ExportadorJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/export/json/ExportadorJSON.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Estadisticas/MenuEstadisticas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Estadisticas/MenuEstadisticas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/JSON/UtilidadesJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/JSON/UtilidadesJSON.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/XML/UtilidadesXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/XML/UtilidadesXML.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1793044075929</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Extra: Implementacion de JUnit">
+      <option name="closed" value="true" />
+      <created>1793045958264</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1793045958264</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -179,6 +196,8 @@
     <MESSAGE value="prueba commit" />
     <MESSAGE value="Se han añadido los datos sobre los modelos" />
     <MESSAGE value="Implementacion de estadisticas + cambios en el historial + MenuPrincipal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementacion de estadisticas + cambios en el historial + MenuPrincipal" />
+    <MESSAGE value="Implementacion de JUnit" />
+    <MESSAGE value="Extra: Implementacion de JUnit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Extra: Implementacion de JUnit" />
   </component>
 </project>
