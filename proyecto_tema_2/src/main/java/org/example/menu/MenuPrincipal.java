@@ -5,6 +5,16 @@ import org.example.dao.JuegoDAO;
 import org.example.dao.PartidaDAO;
 import org.example.export.json.ExportadorJSON;
 import org.example.export.xml.ExportadorXML;
+import org.example.menu.Asociaciones.MenuAsociacion;
+import org.example.menu.BBDD.MenuBaseDatos;
+import org.example.menu.Juegos.MenuJuegos;
+import org.example.menu.Participaciones.MenuParticipaciones;
+import org.example.menu.Partidas.MenuPartidas;
+import org.example.menu.Socios.MenuSocios;
+import org.example.dao.AsociacionDAO;
+import org.example.model.Asociacion;
+
+import java.sql.SQLException;
 
 import java.util.Scanner;
 
@@ -18,7 +28,9 @@ public class MenuPrincipal {
         do {
             System.out.println();
             System.out.println("--------------------------------------");
-            System.out.println("ASOCIACION DE JUEGOS");
+
+            mostrarDatosAsociacion();
+
             System.out.println("Sistema de gestion");
             System.out.println("--------------------------------------");
 
@@ -52,14 +64,39 @@ public class MenuPrincipal {
 
                 case 8 -> exportarXML();
 
-                case 0 -> System.out.println(
-                        "Gracias por utilizar la aplicacion."
-                );
+                case 0 -> System.out.println("Gracias por utilizar la aplicacion.");
 
                 default -> System.out.println("Opcion no valida.");
             }
 
         } while (opcion != 0);
+    }
+
+    private void mostrarDatosAsociacion() {
+        AsociacionDAO dao = new AsociacionDAO();
+
+        try {
+            Asociacion asociacion = dao.obtener();
+
+            if (asociacion == null) {
+                System.out.println("No hay datos de la asociacion registrados.");
+                return;
+            }
+
+            System.out.println(asociacion.getNombre());
+            System.out.println("CIF: " + asociacion.getCif());
+            System.out.println("Direccion: " + asociacion.getDireccion());
+
+            String telefono = asociacion.getTelefono();
+            System.out.println("Telefono: " + (telefono == null || telefono.isBlank() ? "No registrado" : telefono));
+
+            String email = asociacion.getEmail();
+            System.out.println("Email: " + (email == null || email.isBlank() ? "No registrado" : email));
+
+        } catch (SQLException e) {
+            System.out.println("No se pudo cargar la informacion de la asociacion.");
+            System.out.println("Motivo: " + e.getMessage());
+        }
     }
 
     private void exportarJSON() {
@@ -92,9 +129,7 @@ public class MenuPrincipal {
                     exportador.exportarPartidas(dao.listarTodas());
                 }
 
-                case 0 -> System.out.println(
-                        "Volviendo al menu principal."
-                );
+                case 0 -> System.out.println("Volviendo al menu principal.");
 
                 default -> System.out.println("Opcion no valida.");
             }
@@ -135,9 +170,7 @@ public class MenuPrincipal {
                     exportador.exportarPartidas(dao.listarTodas());
                 }
 
-                case 0 -> System.out.println(
-                        "Volviendo al menu principal."
-                );
+                case 0 -> System.out.println("Volviendo al menu principal.");
 
                 default -> System.out.println("Opcion no valida.");
             }
