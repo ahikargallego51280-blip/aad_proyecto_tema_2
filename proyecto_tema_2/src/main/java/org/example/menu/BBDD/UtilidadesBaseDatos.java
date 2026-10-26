@@ -138,9 +138,9 @@ public class UtilidadesBaseDatos {
 
                     System.out.println(
                             nombre
-                                    + " | Tipo: " + tipo
-                                    + " | Tamaño: " + tamano
-                                    + " | Admite nulos: "
+                                    + " | Tipo:  " + tipo
+                                    + " | Tamaño:  " + tamano
+                                    + " | Admite nulos:  "
                                     + (admiteNulos ? "Sí" : "No")
                     );
                 }
