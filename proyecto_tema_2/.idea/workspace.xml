@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Completar ficha de socio con juegos y partidas.&#10;- Closes #11">
+      <change afterPath="$PROJECT_DIR$/MEMORIA.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/JuegoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/JuegoDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/PartidaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/PartidaDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/SocioDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/SocioDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Socio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Socio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/exportaciones/socios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/exportaciones/socios.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Partidas/UtilidadesPartidas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Partidas/UtilidadesPartidas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/MenuSocios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/MenuSocios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/UtilidadesSocios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/UtilidadesSocios.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,19 +51,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/lina/Desktop/asociacion-juegos/aad_proyecto_tema_2/proyecto_tema_2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/lina/Desktop/asociacion-juegos/aad_proyecto_tema_2/proyecto_tema_2",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
