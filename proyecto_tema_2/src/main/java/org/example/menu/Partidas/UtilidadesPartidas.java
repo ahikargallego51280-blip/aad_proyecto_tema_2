@@ -2,10 +2,14 @@
 package org.example.menu.Partidas;
 
 import org.example.dao.JuegoDAO;
+import org.example.dao.ParticipacionDAO;
 import org.example.dao.PartidaDAO;
 import org.example.menu.Utilidades.UtilidadesMenu;
 import org.example.model.Juego;
 import org.example.model.Partida;
+import org.example.model.Participacion;
+import org.example.dao.SocioDAO;
+import org.example.model.Socio;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -19,6 +23,8 @@ public class UtilidadesPartidas {
     private final Scanner sc = new Scanner(System.in);
     private final PartidaDAO partidaDAO = new PartidaDAO();
     private final JuegoDAO juegoDAO = new JuegoDAO();
+    private final ParticipacionDAO participacionDAO = new ParticipacionDAO();
+    private final SocioDAO socioDAO = new SocioDAO();
 
     // Crear una partida
     public void crear() throws SQLException {
@@ -120,20 +126,69 @@ public class UtilidadesPartidas {
     }
 
     // Mostrar los resultados de una búsqueda
-    private void mostrarResultados(List<Partida> partidas) {
+    private void mostrarResultados(List<Partida> partidas)
+            throws SQLException {
+
         if (partidas.isEmpty()) {
             System.out.println("No se han encontrado partidas.");
             return;
         }
 
-        System.out.println("\nRESULTADOS");
+        System.out.println("\nLISTADO DE PARTIDAS");
 
         for (Partida partida : partidas) {
-            System.out.println(partida);
+            Juego juego = juegoDAO.buscarPorId(partida.getIdJuego());
+
+            List<Participacion> participantes =
+                    participacionDAO.listarPorPartida(
+                            partida.getIdPartida()
+                    );
+
+            int inscritos = participantes.size();
+            int plazasLibres = Math.max(
+                    0, partida.getJugadoresDeseados() - inscritos
+            );
+
+            System.out.println("\n========================================");
+            System.out.println("Partida: " + partida.getIdPartida());
+            System.out.println("Juego: " +
+                    (juego == null
+                            ? "Juego no encontrado"
+                            : juego.getNombre()));
+            System.out.println("Fecha: " + partida.getFecha());
+            System.out.println("Hora: " + partida.getHora());
+            System.out.println("Jugadores deseados: "
+                    + partida.getJugadoresDeseados());
+            System.out.println("Participantes inscritos: " + inscritos);
+            System.out.println("Plazas libres: " + plazasLibres);
+            System.out.println("Estado: "
+                    + (partida.isActiva() ? "Activa" : "Cancelada"));
+
+            System.out.println("Participantes:");
+
+            if (participantes.isEmpty()) {
+                System.out.println("  No hay participantes inscritos.");
+            } else {
+
+                for (Participacion participante : participantes) {
+                    if (participante.esSocio()) {
+                        Socio socio = socioDAO.buscarPorDocumento(participante.getDocumentoSocio());
+
+                        String nombreSocio = socio == null ? participante.getDocumentoSocio() : socio.getNombre() + " " + socio.getApellidos();
+
+                        System.out.println("  Socio: " + nombreSocio);
+                    } else {
+                        System.out.println("  Invitado: "
+                                + participante.getNombreInvitada());
+                    }
+                }
+
+            }
         }
 
-        System.out.println("Total de partidas: " + partidas.size());
+        System.out.println("\nTotal de partidas: " + partidas.size());
     }
+
 
     // Modificar una partida
     public void modificar() throws SQLException {
