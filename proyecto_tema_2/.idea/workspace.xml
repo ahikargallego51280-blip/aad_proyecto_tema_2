@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Closes #9&#10;&#10;Se ven los datos de la asociación en el menu prinicipal">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Juego.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Juego.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alinakiseleva49088-oss&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ahikargallego51280-blip/aad_proyecto_tema_2.git&quot;,
+    &quot;accountId&quot;: &quot;f8d9808d-8866-475c-a6da-8711e6be40bf&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="3KeO1Fyd7uKl1MQOGGvq935SYnm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/lina/Desktop/asociacion-juegos/aad_proyecto_tema_2/proyecto_tema_2&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/example/database" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/example/docker" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/example" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="" />
+      <created>1791914349801</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1791914349801</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Conexion correcta con MariaDB">
+      <option name="closed" value="true" />
+      <created>1791916957672</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1791916957672</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Juego + Socio">
+      <option name="closed" value="true" />
+      <created>1791921269538</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1791921269538</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implementacion de BBDD, Metadatos, menus y correciones de errores">
+      <option name="closed" value="true" />
+      <created>1792438366348</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1792438366348</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Implementacion de xml y cambios en la estructura del proyecto">
+      <option name="closed" value="true" />
+      <created>1792516185281</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1792516185281</updated>
+    </task>
+    <task id="LOCAL-00005" summary="BUSCADORES AVANZADOS">
+      <option name="closed" value="true" />
+      <created>1792518426653</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1792518426653</updated>
+    </task>
+    <task id="LOCAL-00006" summary="#6&#10;&#10;SE HA CAMBIADO LA INFORMACION DE ASOCIACIONES Y CAMBIOS DE MENU (SIMPLIFICACION)">
+      <option name="closed" value="true" />
+      <created>1792520019227</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1792520019227</updated>
+    </task>
+    <task id="LOCAL-00007" summary="MEJORAS EN MENUS">
+      <option name="closed" value="true" />
+      <created>1793039365640</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1793039365640</updated>
+    </task>
+    <task id="LOCAL-00008" summary="prueba commit">
+      <option name="closed" value="true" />
+      <created>1793039729389</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1793039729389</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Conexion correcta con MariaDB" />
+    <MESSAGE value="Juego + Socio" />
+    <MESSAGE value="Implementacion de BBDD, Metadatos, menus y correciones de errores" />
+    <MESSAGE value="Implementacion de xml y cambios en la estructura del proyecto" />
+    <MESSAGE value="BUSCADORES AVANZADOS" />
+    <MESSAGE value="#6&#10;&#10;SE HA CAMBIADO LA INFORMACION DE ASOCIACIONES Y CAMBIOS DE MENU (SIMPLIFICACION)" />
+    <MESSAGE value="MEJORAS EN MENUS" />
+    <MESSAGE value="prueba commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="prueba commit" />
+  </component>
+</project>

@@ -150,16 +150,24 @@ public class Juego {
 
     @Override
     public String toString() {
-        return "Juego{" +
-                "idJuego=" + idJuego +
-                ", nombre='" + nombre + '\'' +
-                ", autores='" + autores + '\'' +
-                ", jugadoresMin=" + jugadoresMin +
-                ", jugadoresMax=" + jugadoresMax +
-                ", duracionMin=" + duracionMin +
-                ", tipo='" + tipo + '\'' +
-                ", estado='" + estado + '\'' +
-                ", activo=" + activo +
-                '}';
+        return "----------------------------------------\n" +
+                "ID: " + idJuego + "\n" +
+                "Nombre: " + nombre + "\n" +
+                "Autoría: " + autores + "\n" +
+                "Descripción: " + descripcion + "\n" +
+                "Número de jugadores: " + jugadoresMin + " - " + jugadoresMax + "\n" +
+                "Duración: " + duracionMin + " minutos\n" +
+                "Temática: " + tematica + "\n" +
+                "Tipo: " + tipo + "\n" +
+                "Ubicación: " + ubicacion + "\n" +
+                "Estado: " + estado + "\n" +
+                "Propietario: " +
+                (propietarioDocumento == null
+                        ? "Asociación"
+                        : propietarioDocumento) + "\n" +
+                "Fecha de alta: " + fechaAlta + "\n" +
+                "Activo: " + (activo ? "Sí" : "No") + "\n" +
+                "----------------------------------------";
     }
+
 }
