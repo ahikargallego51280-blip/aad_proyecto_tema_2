@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Completar ficha de socio con juegos y partidas.&#10;- Closes #11">
-      <change afterPath="$PROJECT_DIR$/MEMORIA.md" afterDir="false" />
+    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Adición de memoria.&#10;- Closes #15">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/exportaciones/socios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/exportaciones/socios.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Partidas/UtilidadesPartidas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Partidas/UtilidadesPartidas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/MenuSocios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/MenuSocios.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/UtilidadesSocios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/UtilidadesSocios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/docker/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/docker/init.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +58,14 @@
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/lina/Desktop/asociacion-juegos/aad_proyecto_tema_2/proyecto_tema_2",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\149FA08\Desktop\aad_proyecto_tema_2\proyecto_tema_2" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/database" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/docker" />
@@ -170,6 +169,7 @@
     <MESSAGE value="prueba commit" />
     <MESSAGE value="Closes #10&#10;&#10;Completar listado de juegos con todos sus atributos." />
     <MESSAGE value="Completar ficha de socio con juegos y partidas.&#10;- Closes #11" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completar ficha de socio con juegos y partidas.&#10;- Closes #11" />
+    <MESSAGE value="Adición de memoria.&#10;- Closes #15" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adición de memoria.&#10;- Closes #15" />
   </component>
 </project>

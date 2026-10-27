@@ -1,3 +1,9 @@
+CREATE DATABASE IF NOT EXISTS asociacion_juegos
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
+USE asociacion_juegos;
+
 CREATE TABLE IF NOT EXISTS asociacion (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
@@ -284,9 +290,8 @@ WHERE j.nombre = 'Pandemic'
   AND p.hora = '18:00:00'
   AND NOT EXISTS (
       SELECT 1 FROM participacion pa
-      WHERE pa.id_par
-      tida = p.id_partida
-        AND pa.nombre_invitada = 'Elena Invitada'
+      WHERE pa.id_partida = p.id_partida
+      AND pa.nombre_invitada = 'Elena Invitada'
   );
 
 
