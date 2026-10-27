@@ -1,6 +1,9 @@
+
 package org.example.menu.Estadisticas;
 
 import org.example.dao.EstadisticasDAO;
+import org.example.menu.JSON.UtilidadesJSON;
+import org.example.menu.XML.UtilidadesXML;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -35,6 +38,23 @@ public class MenuEstadisticas {
 
             for (Map.Entry<String, Long> dato : datos.entrySet()) {
                 System.out.println(dato.getKey() + ": " + dato.getValue());
+            }
+
+            System.out.println("\n¿Quieres exportar las estadisticas?");
+            System.out.println("1. JSON");
+            System.out.println("2. XML");
+            System.out.println("0. No exportar");
+            System.out.print("Opcion: ");
+
+            String opcion = sc.nextLine();
+
+            if (opcion.equals("1")) {
+                new UtilidadesJSON().exportarEstadisticas(desde, hasta);
+            } else if (opcion.equals("2")) {
+                new UtilidadesXML().exportarEstadisticas(desde, hasta);
+            } else if (opcion.equals("0")) {
+            } else {
+                System.out.println("Opcion no valida.");
             }
 
         } catch (DateTimeParseException e) {

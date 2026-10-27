@@ -1,25 +1,17 @@
 package org.example.menu;
 
-import org.example.dao.SocioDAO;
-import org.example.dao.JuegoDAO;
-import org.example.dao.PartidaDAO;
-import org.example.dao.AsociacionDAO;
-import org.example.export.json.ExportadorJSON;
-import org.example.export.xml.ExportadorXML;
 import org.example.menu.Asociaciones.MenuAsociacion;
 import org.example.menu.BBDD.MenuBaseDatos;
 import org.example.menu.Estadisticas.MenuEstadisticas;
 import org.example.menu.JSON.MenuExportarJSON;
 import org.example.menu.Juegos.MenuJuegos;
+import org.example.menu.MenuHistorial.MenuHistorialSocio;
 import org.example.menu.Participaciones.MenuParticipaciones;
 import org.example.menu.Partidas.MenuPartidas;
-import org.example.menu.Partidas.UtilidadesPartidas;
 import org.example.menu.Socios.MenuSocios;
 import org.example.menu.Utilidades.UtilidadesMenu;
 import org.example.menu.XML.MenuExportarXML;
-import org.example.model.Asociacion;
 
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MenuPrincipal {
