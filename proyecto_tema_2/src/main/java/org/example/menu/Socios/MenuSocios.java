@@ -18,6 +18,7 @@ public class MenuSocios {
             System.out.println("3. Buscar socio");
             System.out.println("4. Modificar socio");
             System.out.println("5. Dar de baja socio");
+            System.out.println("6. Consultar detalle de socio");
             System.out.println("0. Volver al menú principal");
             System.out.print("Opción: ");
 
@@ -36,6 +37,8 @@ public class MenuSocios {
                     utilidades.darDeBaja();
                 } else if (opcion == 0) {
                     System.out.println("Volviendo al menú principal...");
+                } else if (opcion == 6) {
+                    utilidades.detalle();
                 } else {
                     System.out.println("Opción no válida.");
                 }

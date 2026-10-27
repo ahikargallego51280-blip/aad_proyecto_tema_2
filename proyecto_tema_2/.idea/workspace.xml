@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Closes #9&#10;&#10;Se ven los datos de la asociación en el menu prinicipal">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Closes #10&#10;&#10;Completar listado de juegos con todos sus atributos.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Juego.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Juego.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/JuegoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/JuegoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/PartidaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/PartidaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/SocioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/SocioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Socios/MenuSocios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Socios/MenuSocios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Socios/UtilidadesSocios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Socios/UtilidadesSocios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Socio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Socio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/export/json/ExportadorJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/export/json/ExportadorJSON.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Estadisticas/MenuEstadisticas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Estadisticas/MenuEstadisticas.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +170,7 @@
     <MESSAGE value="#6&#10;&#10;SE HA CAMBIADO LA INFORMACION DE ASOCIACIONES Y CAMBIOS DE MENU (SIMPLIFICACION)" />
     <MESSAGE value="MEJORAS EN MENUS" />
     <MESSAGE value="prueba commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="prueba commit" />
+    <MESSAGE value="Closes #10&#10;&#10;Completar listado de juegos con todos sus atributos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Closes #10&#10;&#10;Completar listado de juegos con todos sus atributos." />
   </component>
 </project>

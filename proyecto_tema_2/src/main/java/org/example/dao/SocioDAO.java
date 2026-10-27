@@ -65,6 +65,25 @@ public class SocioDAO {
         return socios;
     }
 
+    public Socio buscarPorDocumento(String documento) throws SQLException {
+
+        String sql = "SELECT * FROM socio WHERE documento = ?";
+
+        try (Connection con = Conexion.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, documento);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return mapearSocio(rs);
+                }
+            }
+        }
+
+        return null;
+    }
+
     public boolean actualizar(Socio socio) throws SQLException {
 
         String sql = """
@@ -127,11 +146,11 @@ public class SocioDAO {
         List<Socio> socios = new ArrayList<>();
 
         String sql = """
-            SELECT *
-            FROM socio
-            WHERE LOWER(nombre) LIKE LOWER(?)
-            ORDER BY apellidos, nombre
-            """;
+                SELECT *
+                FROM socio
+                WHERE LOWER(nombre) LIKE LOWER(?)
+                ORDER BY apellidos, nombre
+                """;
 
         try (Connection con = Conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -152,11 +171,11 @@ public class SocioDAO {
         List<Socio> socios = new ArrayList<>();
 
         String sql = """
-            SELECT *
-            FROM socio
-            WHERE LOWER(apellidos) LIKE LOWER(?)
-            ORDER BY apellidos, nombre
-            """;
+                SELECT *
+                FROM socio
+                WHERE LOWER(apellidos) LIKE LOWER(?)
+                ORDER BY apellidos, nombre
+                """;
 
         try (Connection con = Conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {

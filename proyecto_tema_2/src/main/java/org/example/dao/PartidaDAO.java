@@ -116,8 +116,6 @@ public class PartidaDAO {
         );
     }
 
-    // BUSCADORES AVANZADOS
-
     public List<Partida> buscarPorJuego(int idJuego) throws SQLException {
         List<Partida> partidas = new ArrayList<>();
 
@@ -142,6 +140,36 @@ public class PartidaDAO {
 
         return partidas;
     }
+
+    public List<Partida> buscarPorSocio(String documento)
+            throws SQLException {
+
+        List<Partida> partidas = new ArrayList<>();
+
+        String sql = """
+        SELECT DISTINCT p.*
+        FROM partida p
+        INNER JOIN participacion pa
+            ON p.id_partida = pa.id_partida
+        WHERE pa.documento_socio = ?
+        ORDER BY p.fecha, p.hora
+        """;
+
+        try (Connection conn = Conexion.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, documento);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    partidas.add(mapearPartida(rs));
+                }
+            }
+        }
+
+        return partidas;
+    }
+
 
     public List<Partida> buscarPorFecha(
             java.time.LocalDate fecha) throws SQLException {
