@@ -73,14 +73,22 @@ public class Socio {
         this.activa = activa;
     }
 
+
     @Override
     public String toString() {
-        return "Socio{" +
-                "documento='" + documento + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", edad=" + edad +
-                ", activa=" + activa +
-                '}';
+        return "----------------------------------------\n" +
+                "Documento: " + documento + "\n" +
+                "Nombre: " + nombre + "\n" +
+                "Apellidos: " + apellidos + "\n" +
+                "Teléfono: " +
+                (telefono == null || telefono.isBlank()
+                        ? "No especificado" : telefono) + "\n" +
+                "Edad: " + edad + "\n" +
+                "Email: " +
+                (email == null || email.isBlank()
+                        ? "No especificado" : email) + "\n" +
+                "Estado: " + (activa ? "Activo" : "Inactivo") + "\n" +
+                "----------------------------------------";
     }
+
 }

@@ -3,6 +3,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 public class Conexion {
     private static final Dotenv dotenv = Dotenv.configure()
             .ignoreIfMissing()
@@ -14,6 +15,7 @@ public class Conexion {
     );
     private static final String USUARIO = obtenerVariable("DB_USER", "root");
     private static final String PASSWORD = obtenerVariable("DB_PASSWORD", "");
+
     private static String obtenerVariable(
             String nombre,
             String valorPorDefecto) {
@@ -23,6 +25,7 @@ public class Conexion {
         }
         return valor != null ? valor : valorPorDefecto;
     }
+
     public static Connection conectar() throws SQLException {
         return DriverManager.getConnection(URL, USUARIO, PASSWORD);
     }

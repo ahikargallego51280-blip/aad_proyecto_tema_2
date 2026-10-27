@@ -75,6 +75,33 @@ public class JuegoDAO {
         return juegos;
     }
 
+    public List<Juego> listarPorPropietario(String documento)
+            throws SQLException {
+
+        List<Juego> juegos = new ArrayList<>();
+
+        String sql = """
+        SELECT *
+        FROM juego
+        WHERE propietario_documento = ?
+        ORDER BY nombre
+        """;
+
+        try (Connection con = Conexion.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, documento);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    juegos.add(mapearJuego(rs));
+                }
+            }
+        }
+
+        return juegos;
+    }
+
     public Juego buscarPorId(int idJuego) throws SQLException {
         String sql = "SELECT * FROM juego WHERE id_juego = ?";
 
