@@ -30,7 +30,10 @@ public class UtilidadesPartidas {
     public void crear() throws SQLException {
         System.out.print("ID del juego: ");
         int idJuego = UtilidadesMenu.leerEntero();
-
+        if (idJuego <= 0) {
+            System.out.println("El ID del juego debe ser mayor que cero.");
+            return;
+        }
         Juego juego = juegoDAO.buscarPorId(idJuego);
 
         if (juego == null || !juego.isActivo()) {
@@ -60,7 +63,8 @@ public class UtilidadesPartidas {
         System.out.print("Número de jugadores deseados: ");
         int jugadores = UtilidadesMenu.leerEntero();
 
-        if (jugadores < juego.getJugadoresMin()
+        if (jugadores <= 0
+                || jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
             System.out.println("El número de jugadores debe estar entre "
                     + juego.getJugadoresMin() + " y "
@@ -196,7 +200,10 @@ public class UtilidadesPartidas {
         int id = UtilidadesMenu.leerEntero();
 
         Partida partida = partidaDAO.buscarPorId(id);
-
+        if (id <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         if (partida == null) {
             System.out.println("No existe esa partida.");
             return;
@@ -209,7 +216,10 @@ public class UtilidadesPartidas {
 
         System.out.print("Nuevo ID del juego: ");
         int idJuego = UtilidadesMenu.leerEntero();
-
+        if (idJuego <= 0) {
+            System.out.println("El ID del juego debe ser mayor que cero.");
+            return;
+        }
         Juego juego = juegoDAO.buscarPorId(idJuego);
 
         if (juego == null || !juego.isActivo()
@@ -236,7 +246,8 @@ public class UtilidadesPartidas {
         System.out.print("Nuevo número de jugadores deseados: ");
         int jugadores = UtilidadesMenu.leerEntero();
 
-        if (jugadores < juego.getJugadoresMin()
+        if (jugadores <= 0
+                || jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
             System.out.println("El número de jugadores debe estar entre "
                     + juego.getJugadoresMin() + " y "
@@ -262,7 +273,10 @@ public class UtilidadesPartidas {
         int id = UtilidadesMenu.leerEntero();
 
         Partida partida = partidaDAO.buscarPorId(id);
-
+        if (id <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         if (partida == null) {
             System.out.println("No existe esa partida.");
             return;

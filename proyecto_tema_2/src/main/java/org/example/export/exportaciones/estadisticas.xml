@@ -1,0 +1,70 @@
+<estadisticas>
+  <fechaDesde>2000-01-01</fechaDesde>
+  <fechaHasta>2026-12-12</fechaHasta>
+  <datos>
+    <estadistica>
+      <nombre>Total de socios</nombre>
+      <valor>6</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Socios activos</nombre>
+      <valor>4</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Socios inactivos</nombre>
+      <valor>2</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Total de juegos</nombre>
+      <valor>3</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Juegos dados de alta en el periodo</nombre>
+      <valor>3</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Juegos activos</nombre>
+      <valor>3</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Juegos disponibles</nombre>
+      <valor>3</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Juegos prestados</nombre>
+      <valor>0</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Juegos en reparación</nombre>
+      <valor>0</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Partidas del periodo</nombre>
+      <valor>3</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Partidas activas del periodo</nombre>
+      <valor>2</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Partidas inactivas del periodo</nombre>
+      <valor>1</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Participaciones del periodo</nombre>
+      <valor>4</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Socios participantes distintos</nombre>
+      <valor>3</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Participaciones de invitados</nombre>
+      <valor>1</valor>
+    </estadistica>
+    <estadistica>
+      <nombre>Participaciones marcadas como ganadoras</nombre>
+      <valor>2</valor>
+    </estadistica>
+  </datos>
+</estadisticas>

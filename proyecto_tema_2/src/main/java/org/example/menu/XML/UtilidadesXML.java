@@ -9,6 +9,8 @@ import org.example.dao.EstadisticasDAO;
 import org.example.export.xml.ExportadorXML;
 import org.example.model.ActividadSocio;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -23,9 +25,12 @@ public class UtilidadesXML {
             exportador.exportarSocios(dao.listarTodas());
             System.out.println("Socios exportados correctamente.");
 
-        } catch (Exception e) {
-            System.out.println("No se pudieron exportar los socios a XML.");
-            System.out.println("Motivo: " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error de base de datos al exportar los socios.");
+        } catch (IOException e) {
+            System.out.println("Error al guardar el archivo XML: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Datos no válidos: " + e.getMessage());
         }
     }
 

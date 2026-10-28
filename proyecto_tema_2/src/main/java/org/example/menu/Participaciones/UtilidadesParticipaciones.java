@@ -32,7 +32,10 @@ public class UtilidadesParticipaciones {
     public void inscribirSocio() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         if (!comprobarPlaza(idPartida)) {
             return;
         }
@@ -66,7 +69,10 @@ public class UtilidadesParticipaciones {
     public void inscribirInvitado() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         if (!comprobarPlaza(idPartida)) {
             return;
         }
@@ -129,7 +135,10 @@ public class UtilidadesParticipaciones {
     public void listarParticipantes() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         Partida partida = partidaDAO.buscarPorId(idPartida);
 
         if (partida == null) {
@@ -172,15 +181,24 @@ public class UtilidadesParticipaciones {
 
         System.out.println("Plazas restantes: " + plazasRestantes);
     }
+
     // Muestra los participantes, comprueba que la particiàcion elegida pertenezca a esa partida y registra al ganador
     public void registrarGanador() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         Partida partida = partidaDAO.buscarPorId(idPartida);
 
         if (partida == null) {
             System.out.println("No existe esa partida.");
+            return;
+        }
+
+        if (!partida.isActiva()) {
+            System.out.println("No se puede registrar un ganador en una partida cancelada.");
             return;
         }
 
@@ -204,7 +222,10 @@ public class UtilidadesParticipaciones {
 
         System.out.print("ID de participación del ganador: ");
         int idParticipacion = UtilidadesMenu.leerEntero();
-
+        if (idParticipacion <= 0) {
+            System.out.println("El ID de participación debe ser mayor que cero.");
+            return;
+        }
         Participacion seleccionada =
                 buscarParticipacion(participantes, idParticipacion);
 
@@ -226,7 +247,10 @@ public class UtilidadesParticipaciones {
     public void retirarParticipante() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         Partida partida = partidaDAO.buscarPorId(idPartida);
 
         if (partida == null) {
@@ -253,7 +277,10 @@ public class UtilidadesParticipaciones {
                 "ID de participación que quieres retirar: "
         );
         int idParticipacion = UtilidadesMenu.leerEntero();
-
+        if (idParticipacion <= 0) {
+            System.out.println("El ID de participación debe ser mayor que cero.");
+            return;
+        }
         Participacion seleccionada =
                 buscarParticipacion(participantes, idParticipacion);
 

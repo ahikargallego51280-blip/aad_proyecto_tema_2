@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.SQLException;
 
 public class ExportadorMetadatos {
 
-    public boolean exportarJSON() throws Exception {
+    public boolean exportarJSON() throws SQLException, IOException {
 
         MetadatosDAO dao = new MetadatosDAO();
 

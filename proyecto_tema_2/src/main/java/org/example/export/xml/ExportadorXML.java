@@ -29,43 +29,77 @@ public class ExportadorXML {
     }
 
     private File crearArchivo(String nombre) throws IOException {
-        File carpeta = new File("src/main/java/org/example/export/exportaciones");
+        File carpeta = new File("exportaciones");
 
         if (!carpeta.exists() && !carpeta.mkdirs()) {
-            throw new IOException("No se pudo crear la carpeta de exportaciones.");
+            throw new IOException(
+                    "No se pudo crear la carpeta de exportaciones."
+            );
+        }
+
+        if (!carpeta.isDirectory()) {
+            throw new IOException(
+                    "La ruta de exportaciones no es una carpeta."
+            );
         }
 
         return new File(carpeta, nombre);
     }
 
     public void exportarSocios(List<Socio> socios) throws IOException {
+        if (socios == null) {
+            throw new IllegalArgumentException(
+                    "La lista de socios no puede ser nula."
+            );
+        }
+
         File archivo = crearArchivo("socios.xml");
 
         mapper.writer()
                 .withRootName("socios")
                 .writeValue(archivo, socios);
 
-        System.out.println("Socios exportados: " + archivo.getAbsolutePath());
+        System.out.println(
+                "Socios exportados: " + archivo.getAbsolutePath()
+        );
     }
 
     public void exportarJuegos(List<Juego> juegos) throws IOException {
+        if (juegos == null) {
+            throw new IllegalArgumentException(
+                    "La lista de juegos no puede ser nula."
+            );
+        }
+
         File archivo = crearArchivo("juegos.xml");
 
         mapper.writer()
                 .withRootName("juegos")
                 .writeValue(archivo, juegos);
 
-        System.out.println("Juegos exportados: " + archivo.getAbsolutePath());
+        System.out.println(
+                "Juegos exportados: " + archivo.getAbsolutePath()
+        );
     }
 
-    public void exportarPartidas(List<Partida> partidas) throws IOException {
+    public void exportarPartidas(List<Partida> partidas)
+            throws IOException {
+
+        if (partidas == null) {
+            throw new IllegalArgumentException(
+                    "La lista de partidas no puede ser nula."
+            );
+        }
+
         File archivo = crearArchivo("partidas.xml");
 
         mapper.writer()
                 .withRootName("partidas")
                 .writeValue(archivo, partidas);
 
-        System.out.println("Partidas exportadas: " + archivo.getAbsolutePath());
+        System.out.println(
+                "Partidas exportadas: " + archivo.getAbsolutePath()
+        );
     }
 
     public void exportarHistorial(
@@ -74,7 +108,22 @@ public class ExportadorXML {
             LocalDate hasta,
             List<ActividadSocio> actividades) throws IOException {
 
+        if (documento == null || documento.isBlank()) {
+            throw new IllegalArgumentException(
+                    "El documento del socio es obligatorio."
+            );
+        }
+
+        validarFechas(desde, hasta);
+
+        if (actividades == null) {
+            throw new IllegalArgumentException(
+                    "La lista de actividades no puede ser nula."
+            );
+        }
+
         Historial historial = new Historial();
+
         historial.documentoSocio = documento;
         historial.fechaDesde = desde.toString();
         historial.fechaHasta = hasta.toString();
@@ -86,7 +135,9 @@ public class ExportadorXML {
                 .withRootName("historial")
                 .writeValue(archivo, historial);
 
-        System.out.println("Historial exportado: " + archivo.getAbsolutePath());
+        System.out.println(
+                "Historial exportado: " + archivo.getAbsolutePath()
+        );
     }
 
     public void exportarEstadisticas(
@@ -94,14 +145,25 @@ public class ExportadorXML {
             LocalDate hasta,
             Map<String, Long> estadisticas) throws IOException {
 
+        validarFechas(desde, hasta);
+
+        if (estadisticas == null) {
+            throw new IllegalArgumentException(
+                    "Las estadísticas no pueden ser nulas."
+            );
+        }
+
         Estadisticas datos = new Estadisticas();
+
         datos.fechaDesde = desde.toString();
         datos.fechaHasta = hasta.toString();
 
         for (Map.Entry<String, Long> entrada : estadisticas.entrySet()) {
             DatoEstadistica dato = new DatoEstadistica();
+
             dato.nombre = entrada.getKey();
             dato.valor = entrada.getValue();
+
             datos.datos.add(dato);
         }
 
@@ -111,8 +173,23 @@ public class ExportadorXML {
                 .withRootName("estadisticas")
                 .writeValue(archivo, datos);
 
-        System.out.println("Estadisticas exportadas: "
-                + archivo.getAbsolutePath());
+        System.out.println(
+                "Estadísticas exportadas: " + archivo.getAbsolutePath()
+        );
+    }
+
+    private void validarFechas(LocalDate desde, LocalDate hasta) {
+        if (desde == null || hasta == null) {
+            throw new IllegalArgumentException(
+                    "Las fechas son obligatorias."
+            );
+        }
+
+        if (desde.isAfter(hasta)) {
+            throw new IllegalArgumentException(
+                    "La fecha inicial no puede ser posterior a la final."
+            );
+        }
     }
 
     public static class Historial {

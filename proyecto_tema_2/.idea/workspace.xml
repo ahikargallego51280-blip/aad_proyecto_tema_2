@@ -5,9 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Adición de memoria.&#10;- Closes #15">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/docker/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/docker/init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/seguridad/Acceso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ActividadSocioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ActividadSocioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/data/ExportadorMetadatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/data/ExportadorMetadatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/data/MetadatosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/data/MetadatosDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/json/ExportadorJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/json/ExportadorJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Asociaciones/MenuAsociacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Asociaciones/MenuAsociacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/BBDD/MenuBaseDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/BBDD/MenuBaseDatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/BBDD/UtilidadesBaseDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/BBDD/UtilidadesBaseDatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Estadisticas/MenuEstadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Estadisticas/MenuEstadisticas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Estadisticas/UtilidadesEstadisticas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/JSON/UtilidadesJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/JSON/UtilidadesJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Juegos/UtilidadesJuegos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Juegos/UtilidadesJuegos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/MenuHistorialSocio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/MenuHistorialSocio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/UtilidadesHistorial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Participaciones/UtilidadesParticipaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Participaciones/UtilidadesParticipaciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Socios/UtilidadesSocios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Socios/UtilidadesSocios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/XML/UtilidadesXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/XML/UtilidadesXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/ActividadSocioDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/ActividadSocioDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/data/ExportadorMetadatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/data/ExportadorMetadatos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/data/MetadatosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/data/MetadatosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/export/json/ExportadorJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/export/json/ExportadorJSON.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Asociaciones/MenuAsociacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Asociaciones/MenuAsociacion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/BBDD/MenuBaseDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/BBDD/MenuBaseDatos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/BBDD/UtilidadesBaseDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/BBDD/UtilidadesBaseDatos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Estadisticas/MenuEstadisticas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Estadisticas/MenuEstadisticas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/JSON/UtilidadesJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/JSON/UtilidadesJSON.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Juegos/UtilidadesJuegos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Juegos/UtilidadesJuegos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/MenuPrincipal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/MenuPrincipal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Participaciones/UtilidadesParticipaciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Participaciones/UtilidadesParticipaciones.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Partidas/UtilidadesPartidas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Partidas/UtilidadesPartidas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/UtilidadesSocios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/UtilidadesSocios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/XML/UtilidadesXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/XML/UtilidadesXML.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,22 +82,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "develop",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/lina/Desktop/asociacion-juegos/aad_proyecto_tema_2/proyecto_tema_2",
-    "node.js.detected.package.jshint": "true",
-    "node.js.selected.package.jshint": "",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/lina/Desktop/asociacion-juegos/aad_proyecto_tema_2/proyecto_tema_2&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\149FA08\Desktop\aad_proyecto_tema_2\proyecto_tema_2" />

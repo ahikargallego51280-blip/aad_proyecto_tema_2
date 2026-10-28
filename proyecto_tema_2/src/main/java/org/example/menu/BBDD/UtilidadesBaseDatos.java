@@ -61,17 +61,23 @@ public class UtilidadesBaseDatos {
     }
 
     // Genera un archivo JSON con metadatos de BD y captura errores que puedan ocurrir durante la exportacion
+
     public void exportarMetadatos() {
         try {
             ExportadorMetadatos exportador = new ExportadorMetadatos();
             exportador.exportarJSON();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(
-                    "Error al exportar los metadatos: " + e.getMessage()
+                    "Error de base de datos al exportar los metadatos."
+            );
+        } catch (java.io.IOException e) {
+            System.out.println(
+                    "Error al guardar el archivo JSON: " + e.getMessage()
             );
         }
     }
+
 
     // Mostrar estructura de una tabla concreta
     public void mostrarEstructura(String tabla)

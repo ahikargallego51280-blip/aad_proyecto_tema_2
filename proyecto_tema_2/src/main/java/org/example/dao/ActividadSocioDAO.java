@@ -19,7 +19,23 @@ public class ActividadSocioDAO {
             String documentoSocio,
             LocalDate desde,
             LocalDate hasta) throws SQLException {
+        if (documentoSocio == null || documentoSocio.isBlank()) {
+            throw new IllegalArgumentException(
+                    "El documento del socio es obligatorio."
+            );
+        }
 
+        if (desde == null || hasta == null) {
+            throw new IllegalArgumentException(
+                    "Las fechas son obligatorias."
+            );
+        }
+
+        if (desde.isAfter(hasta)) {
+            throw new IllegalArgumentException(
+                    "La fecha inicial no puede ser posterior a la fecha final."
+            );
+        }
         String sql = """
                 SELECT pa.id_partida, pa.fecha, pa.hora,
                        j.nombre AS nombre_juego,
