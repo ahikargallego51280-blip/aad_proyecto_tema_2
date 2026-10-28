@@ -3,8 +3,6 @@ package org.example.export.xml;
 
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.example.model.Socio;
 import org.example.model.Juego;
@@ -14,7 +12,6 @@ import org.example.model.ActividadSocio;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -190,29 +187,5 @@ public class ExportadorXML {
                     "La fecha inicial no puede ser posterior a la final."
             );
         }
-    }
-
-    public static class Historial {
-        public String documentoSocio;
-        public String fechaDesde;
-        public String fechaHasta;
-
-        @JacksonXmlElementWrapper(localName = "actividades")
-        @JacksonXmlProperty(localName = "actividad")
-        public List<ActividadSocio> actividades = new ArrayList<>();
-    }
-
-    public static class Estadisticas {
-        public String fechaDesde;
-        public String fechaHasta;
-
-        @JacksonXmlElementWrapper(localName = "datos")
-        @JacksonXmlProperty(localName = "estadistica")
-        public List<DatoEstadistica> datos = new ArrayList<>();
-    }
-
-    public static class DatoEstadistica {
-        public String nombre;
-        public Long valor;
     }
 }

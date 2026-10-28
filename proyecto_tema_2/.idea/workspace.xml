@@ -4,45 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Adición de memoria.&#10;- Closes #15">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/seguridad/Acceso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ActividadSocioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ActividadSocioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/data/ExportadorMetadatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/data/ExportadorMetadatos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/data/MetadatosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/data/MetadatosDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/json/ExportadorJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/json/ExportadorJSON.java" afterDir="false" />
+    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="#17 &#10;Validacion de errores y excepciones">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/DatoEstadistica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/Estadisticas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/Historial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Asociaciones/MenuAsociacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Asociaciones/MenuAsociacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/BBDD/MenuBaseDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/BBDD/MenuBaseDatos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/BBDD/UtilidadesBaseDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/BBDD/UtilidadesBaseDatos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Estadisticas/MenuEstadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Estadisticas/MenuEstadisticas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Estadisticas/UtilidadesEstadisticas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/JSON/UtilidadesJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/JSON/UtilidadesJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Juegos/UtilidadesJuegos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Juegos/UtilidadesJuegos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/MenuHistorialSocio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/MenuHistorialSocio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuHistorial/UtilidadesHistorial.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/MenuPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Participaciones/UtilidadesParticipaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Participaciones/UtilidadesParticipaciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Socios/UtilidadesSocios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Socios/UtilidadesSocios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/XML/UtilidadesXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/XML/UtilidadesXML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/ActividadSocioDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/ActividadSocioDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/data/ExportadorMetadatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/data/ExportadorMetadatos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/data/MetadatosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/data/MetadatosDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/export/json/ExportadorJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/export/json/ExportadorJSON.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Asociaciones/MenuAsociacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Asociaciones/MenuAsociacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/BBDD/MenuBaseDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/BBDD/MenuBaseDatos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/BBDD/UtilidadesBaseDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/BBDD/UtilidadesBaseDatos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Estadisticas/MenuEstadisticas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Estadisticas/MenuEstadisticas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/JSON/UtilidadesJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/JSON/UtilidadesJSON.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Juegos/UtilidadesJuegos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Juegos/UtilidadesJuegos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/MenuPrincipal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/MenuPrincipal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Participaciones/UtilidadesParticipaciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Participaciones/UtilidadesParticipaciones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Partidas/UtilidadesPartidas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Partidas/UtilidadesPartidas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/UtilidadesSocios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/Socios/UtilidadesSocios.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/menu/XML/UtilidadesXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/menu/XML/UtilidadesXML.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1793039729389</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="#17 &#10;Validacion de errores y excepciones">
+      <option name="closed" value="true" />
+      <created>1793203039627</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1793203039627</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +180,7 @@
     <MESSAGE value="Closes #10&#10;&#10;Completar listado de juegos con todos sus atributos." />
     <MESSAGE value="Completar ficha de socio con juegos y partidas.&#10;- Closes #11" />
     <MESSAGE value="Adición de memoria.&#10;- Closes #15" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adición de memoria.&#10;- Closes #15" />
+    <MESSAGE value="#17 &#10;Validacion de errores y excepciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="#17 &#10;Validacion de errores y excepciones" />
   </component>
 </project>
