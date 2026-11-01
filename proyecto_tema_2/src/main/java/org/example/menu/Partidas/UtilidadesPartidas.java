@@ -26,11 +26,13 @@ public class UtilidadesPartidas {
     private final ParticipacionDAO participacionDAO = new ParticipacionDAO();
     private final SocioDAO socioDAO = new SocioDAO();
 
-    // Crear una partida
     public void crear() throws SQLException {
         System.out.print("ID del juego: ");
         int idJuego = UtilidadesMenu.leerEntero();
-
+        if (idJuego <= 0) {
+            System.out.println("El ID del juego debe ser mayor que cero.");
+            return;
+        }
         Juego juego = juegoDAO.buscarPorId(idJuego);
 
         if (juego == null || !juego.isActivo()) {
@@ -60,7 +62,8 @@ public class UtilidadesPartidas {
         System.out.print("Número de jugadores deseados: ");
         int jugadores = UtilidadesMenu.leerEntero();
 
-        if (jugadores < juego.getJugadoresMin()
+        if (jugadores <= 0
+                || jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
             System.out.println("El número de jugadores debe estar entre "
                     + juego.getJugadoresMin() + " y "
@@ -79,14 +82,12 @@ public class UtilidadesPartidas {
         }
     }
 
-    // Listar todas las partidas
     public void listar() throws SQLException {
         List<Partida> partidas = partidaDAO.listarTodas();
 
         mostrarResultados(partidas);
     }
 
-    // Buscar partidas por juego o por fecha
     public void buscar() throws SQLException {
         System.out.println("\nBUSCAR PARTIDA");
         System.out.println("1. Buscar por ID del juego");
@@ -125,7 +126,6 @@ public class UtilidadesPartidas {
         mostrarResultados(partidas);
     }
 
-    // Mostrar los resultados de una búsqueda
     private void mostrarResultados(List<Partida> partidas)
             throws SQLException {
 
@@ -190,13 +190,15 @@ public class UtilidadesPartidas {
     }
 
 
-    // Modificar una partida
     public void modificar() throws SQLException {
         System.out.print("ID de la partida: ");
         int id = UtilidadesMenu.leerEntero();
 
         Partida partida = partidaDAO.buscarPorId(id);
-
+        if (id <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         if (partida == null) {
             System.out.println("No existe esa partida.");
             return;
@@ -209,7 +211,10 @@ public class UtilidadesPartidas {
 
         System.out.print("Nuevo ID del juego: ");
         int idJuego = UtilidadesMenu.leerEntero();
-
+        if (idJuego <= 0) {
+            System.out.println("El ID del juego debe ser mayor que cero.");
+            return;
+        }
         Juego juego = juegoDAO.buscarPorId(idJuego);
 
         if (juego == null || !juego.isActivo()
@@ -236,7 +241,8 @@ public class UtilidadesPartidas {
         System.out.print("Nuevo número de jugadores deseados: ");
         int jugadores = UtilidadesMenu.leerEntero();
 
-        if (jugadores < juego.getJugadoresMin()
+        if (jugadores <= 0
+                || jugadores < juego.getJugadoresMin()
                 || jugadores > juego.getJugadoresMax()) {
             System.out.println("El número de jugadores debe estar entre "
                     + juego.getJugadoresMin() + " y "
@@ -256,13 +262,15 @@ public class UtilidadesPartidas {
         }
     }
 
-    // Cancelar una partida
     public void cancelar() throws SQLException {
         System.out.print("ID de la partida: ");
         int id = UtilidadesMenu.leerEntero();
 
         Partida partida = partidaDAO.buscarPorId(id);
-
+        if (id <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         if (partida == null) {
             System.out.println("No existe esa partida.");
             return;
@@ -288,7 +296,6 @@ public class UtilidadesPartidas {
         }
     }
 
-    // Leer una fecha
     private LocalDate leerFecha() {
         try {
             return LocalDate.parse(sc.nextLine().trim());
@@ -298,7 +305,6 @@ public class UtilidadesPartidas {
         }
     }
 
-    // Leer una hora
     private LocalTime leerHora() {
         try {
             return LocalTime.parse(sc.nextLine().trim());

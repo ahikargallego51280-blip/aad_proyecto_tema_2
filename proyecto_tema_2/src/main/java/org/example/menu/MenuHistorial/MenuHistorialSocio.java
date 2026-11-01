@@ -44,8 +44,7 @@ public class MenuHistorialSocio {
             int opcion;
 
             try {
-                opcion = Integer.parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {
+                opcion = Integer.parseInt(sc.nextLine().trim());            } catch (NumberFormatException e) {
                 System.out.println("Debes introducir un número.");
                 return;
             }
@@ -122,8 +121,7 @@ public class MenuHistorialSocio {
             System.out.println("0. No exportar");
             System.out.print("Opción: ");
 
-            String formato = sc.nextLine();
-
+            String formato = sc.nextLine().trim();
             if (formato.equals("1")) {
                 new UtilidadesJSON().exportarHistorial(
                         socio.getDocumento(), desde, hasta);
@@ -139,8 +137,7 @@ public class MenuHistorialSocio {
         } catch (DateTimeParseException e) {
             System.out.println("Fecha incorrecta. Usa AAAA-MM-DD.");
         } catch (SQLException e) {
-            System.out.println("Error al consultar la base de datos.");
-            e.printStackTrace();
+            System.out.println("Error al consultar la base de datos: " + e.getMessage());
         }
     }
 }

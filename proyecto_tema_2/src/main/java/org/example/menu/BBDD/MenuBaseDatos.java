@@ -3,10 +3,10 @@ package org.example.menu.BBDD;
 
 import org.example.dao.data.ExportadorMetadatos;
 import org.example.menu.Utilidades.UtilidadesMenu;
-
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 public class MenuBaseDatos {
 
     private final Scanner sc = new Scanner(System.in);
@@ -39,7 +39,11 @@ public class MenuBaseDatos {
                     System.out.print("Nombre de la tabla: ");
                     String tabla = sc.nextLine().trim();
 
-                    utilidades.mostrarEstructura(tabla);
+                    if (tabla.isBlank()) {
+                        System.out.println("Debes introducir el nombre de una tabla.");
+                    } else {
+                        utilidades.mostrarEstructura(tabla);
+                    }
 
                 } else if (opcion == 4) {
                     utilidades.exportarMetadatos();

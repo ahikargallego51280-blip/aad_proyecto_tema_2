@@ -10,6 +10,8 @@ import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -17,8 +19,8 @@ import java.util.Map;
 
 public class MetadatosDAO {
 
-    public String obtenerMetadatosJSON() throws SQLException {
-
+    public String obtenerMetadatosJSON()
+            throws SQLException, JsonProcessingException {
         Map<String, Object> baseDatos = new LinkedHashMap<>();
 
         try (Connection conn = Conexion.conectar()) {
@@ -107,16 +109,11 @@ public class MetadatosDAO {
             baseDatos.put("tablas", tablas);
         }
 
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-            return mapper.writeValueAsString(baseDatos);
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-        } catch (Exception e) {
-            throw new SQLException(
-                    "No se pudieron convertir los metadatos a JSON.", e
-            );
-        }
+        return mapper.writeValueAsString(baseDatos);
+
     }
 }

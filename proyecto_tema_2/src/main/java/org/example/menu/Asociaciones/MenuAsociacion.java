@@ -72,9 +72,9 @@ public class MenuAsociacion {
                             a.setEmail(email);
                         }
 
-                        if (a.getNombre().isBlank()
-                                || a.getCif().isBlank()
-                                || a.getDireccion().isBlank()) {
+                        if (a.getNombre() == null || a.getNombre().isBlank()
+                                || a.getCif() == null || a.getCif().isBlank()
+                                || a.getDireccion() == null || a.getDireccion().isBlank()) {
                             System.out.println("Nombre, CIF y direccion son obligatorios.");
                         } else if (dao.actualizar(a)) {
                             System.out.println("Datos modificados correctamente.");
@@ -93,8 +93,7 @@ public class MenuAsociacion {
             } catch (NumberFormatException e) {
                 System.out.println("Introduce un numero valido.");
             } catch (SQLException e) {
-                System.out.println("Error de base de datos: " + e.getMessage());
-            }
+                System.out.println("No se ha podido acceder o modificar la base de datos.");            }
 
         } while (opcion != 0);
     }

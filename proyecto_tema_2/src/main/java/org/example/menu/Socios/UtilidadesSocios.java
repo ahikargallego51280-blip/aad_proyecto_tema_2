@@ -1,4 +1,3 @@
-
 package org.example.menu.Socios;
 
 import org.example.dao.SocioDAO;
@@ -20,7 +19,6 @@ public class UtilidadesSocios {
     private final JuegoDAO juegoDAO = new JuegoDAO();
     private final PartidaDAO partidaDAO = new PartidaDAO();
 
-    // Registrar un socio
     public void registrar() throws SQLException {
         System.out.println("\nREGISTRAR SOCIO");
 
@@ -65,7 +63,6 @@ public class UtilidadesSocios {
         }
     }
 
-    // Listar todos los socios
     public void listar() throws SQLException {
         List<Socio> socios = dao.listarTodas();
 
@@ -83,7 +80,6 @@ public class UtilidadesSocios {
         System.out.println("Total de socios: " + socios.size());
     }
 
-    // Buscar socios por nombre o apellidos
     public void buscar() throws SQLException {
         System.out.println("\nBUSCAR SOCIO");
         System.out.println("1. Buscar por nombre");
@@ -135,7 +131,6 @@ public class UtilidadesSocios {
         }
     }
 
-    // Modificar un socio
     public void modificar() throws SQLException {
         System.out.println("\nMODIFICAR SOCIO");
 
@@ -158,11 +153,24 @@ public class UtilidadesSocios {
         String email = sc.nextLine().trim();
 
         System.out.print("¿Está activo? (s/n): ");
-        boolean activo = sc.nextLine().trim().equalsIgnoreCase("s");
+        String respuesta = sc.nextLine().trim();
+
+        if (!respuesta.equalsIgnoreCase("s")
+                && !respuesta.equalsIgnoreCase("n")) {
+            System.out.println("Debes responder s o n.");
+            return;
+        }
+
+        boolean activo = respuesta.equalsIgnoreCase("s");
 
         if (documento.isEmpty() || nombre.isEmpty()
                 || apellidos.isEmpty() || edad < 0) {
-            System.out.println("Datos no válidos.");
+            System.out.println("Revisa los datos obligatorios y la edad.");
+            return;
+        }
+
+        if (!dao.existe(documento)) {
+            System.out.println("No existe un socio con ese DNI/NIE.");
             return;
         }
 
@@ -179,11 +187,10 @@ public class UtilidadesSocios {
         if (dao.actualizar(socio)) {
             System.out.println("Socio modificado correctamente.");
         } else {
-            System.out.println("No existe un socio con ese documento.");
+            System.out.println("No se ha podido modificar el socio.");
         }
     }
 
-    // Dar de baja un socio
     public void darDeBaja() throws SQLException {
         System.out.println("\nDAR DE BAJA SOCIO");
 
@@ -198,7 +205,13 @@ public class UtilidadesSocios {
         System.out.print("¿Confirmas la baja? (s/n): ");
         String confirmacion = sc.nextLine().trim();
 
-        if (!confirmacion.equalsIgnoreCase("s")) {
+        if (!confirmacion.equalsIgnoreCase("s")
+                && !confirmacion.equalsIgnoreCase("n")) {
+            System.out.println("Debes responder s o n.");
+            return;
+        }
+
+        if (confirmacion.equalsIgnoreCase("n")) {
             System.out.println("Operación cancelada.");
             return;
         }
@@ -209,7 +222,6 @@ public class UtilidadesSocios {
             System.out.println("No existe un socio con ese documento.");
         }
     }
-
 
     public void detalle() throws SQLException {
         System.out.println("\nDETALLE DE SOCIO");
@@ -222,7 +234,6 @@ public class UtilidadesSocios {
             return;
         }
 
-        // 1. Buscar los datos del socio
         Socio socio = dao.buscarPorDocumento(documento);
 
         if (socio == null) {
@@ -233,9 +244,8 @@ public class UtilidadesSocios {
         System.out.println("\n=== DATOS DEL SOCIO ===");
         System.out.println(socio);
 
-        // 2. Mostrar los juegos que posee
-        List<Juego> juegos =
-                juegoDAO.listarPorPropietario(documento);
+        // Mostrar los juegos que posee
+        List<Juego> juegos = juegoDAO.listarPorPropietario(documento);
 
         System.out.println("\n=== JUEGOS QUE POSEE ===");
 
@@ -249,9 +259,7 @@ public class UtilidadesSocios {
             System.out.println("Total de juegos: " + juegos.size());
         }
 
-        // 3. Mostrar las partidas en las que participa
-        List<Partida> partidas =
-                partidaDAO.buscarPorSocio(documento);
+        List<Partida> partidas = partidaDAO.buscarPorSocio(documento);
 
         System.out.println("\n=== PARTIDAS EN LAS QUE PARTICIPA ===");
 
@@ -261,7 +269,9 @@ public class UtilidadesSocios {
             for (Partida partida : partidas) {
                 Juego juego = juegoDAO.buscarPorId(partida.getIdJuego());
 
-                String nombreJuego = juego == null ? "Juego no encontrado" : juego.getNombre();
+                String nombreJuego = juego == null
+                        ? "Juego no encontrado"
+                        : juego.getNombre();
 
                 System.out.println(
                         "Partida ID: " + partida.getIdPartida()

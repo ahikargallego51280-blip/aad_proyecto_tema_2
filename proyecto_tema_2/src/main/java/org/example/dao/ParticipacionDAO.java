@@ -45,7 +45,7 @@ public class ParticipacionDAO {
 
         String sql = """
                 INSERT INTO participacion
-                (id_partida, documento_socio, nombre_invitado)
+                (id_partida, documento_socio, nombre_invitada)
                 VALUES (?, ?, NULL)
                 """;
 
@@ -72,7 +72,7 @@ public class ParticipacionDAO {
 
         String sql = """
                 INSERT INTO participacion
-                (id_partida, documento_socio, nombre_invitado)
+                (id_partida, documento_socio, nombre_invitada)
                 VALUES (?, NULL, ?)
                 """;
 
@@ -109,7 +109,7 @@ public class ParticipacionDAO {
                             rs.getInt("id_participacion"),
                             rs.getInt("id_partida"),
                             rs.getString("documento_socio"),
-                            rs.getString("nombre_invitado"),
+                            rs.getString("nombre_invitada"),
                             rs.getBoolean("es_ganadora")
                     ));
                 }

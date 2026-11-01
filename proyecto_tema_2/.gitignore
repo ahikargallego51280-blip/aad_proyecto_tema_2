@@ -38,5 +38,12 @@ build/
 ### Mac OS ###
 .DS_Store
 
-### General ###
+# Environment variables
 .env
+.env.*
+!.env.example
+
+# Ignore nested environment files too
+**/.env
+**/.env.*
+!**/.env.example

@@ -5,6 +5,7 @@ import org.example.dao.EstadisticasDAO;
 import org.example.menu.JSON.UtilidadesJSON;
 import org.example.menu.XML.UtilidadesXML;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -46,7 +47,7 @@ public class MenuEstadisticas {
             System.out.println("0. No exportar");
             System.out.print("Opcion: ");
 
-            String opcion = sc.nextLine();
+            String opcion = sc.nextLine().trim();
 
             if (opcion.equals("1")) {
                 new UtilidadesJSON().exportarEstadisticas(desde, hasta);
@@ -59,9 +60,10 @@ public class MenuEstadisticas {
 
         } catch (DateTimeParseException e) {
             System.out.println("Fecha incorrecta. Usa AAAA-MM-DD.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Datos incorrectos: " + e.getMessage());
         } catch (SQLException e) {
             System.out.println("Error al consultar las estadisticas.");
-            e.printStackTrace();
         }
     }
 }

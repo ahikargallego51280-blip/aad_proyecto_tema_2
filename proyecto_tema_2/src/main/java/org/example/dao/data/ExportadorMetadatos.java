@@ -6,16 +6,17 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.SQLException;
 
 public class ExportadorMetadatos {
 
-    public boolean exportarJSON() throws Exception {
+    public boolean exportarJSON() throws SQLException, IOException {
 
         MetadatosDAO dao = new MetadatosDAO();
 
         String json = dao.obtenerMetadatosJSON();
 
-        Path carpeta = Path.of("src/main/java/org/example/exportaciones");
+        Path carpeta = Path.of("src/main/java/org/example/export/exportaciones");
         Files.createDirectories(carpeta);
 
         Path archivo = carpeta.resolve("metadatos.json");

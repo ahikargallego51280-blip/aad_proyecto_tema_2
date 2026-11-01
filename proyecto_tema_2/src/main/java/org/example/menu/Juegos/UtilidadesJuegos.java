@@ -163,7 +163,10 @@ public class UtilidadesJuegos {
             if (opcion == 1) {
                 System.out.print("ID del juego: ");
                 int id = UtilidadesMenu.leerEntero();
-
+                if (id <= 0) {
+                    System.out.println("El ID debe ser mayor que cero.");
+                    return;
+                }
                 Juego juego = dao.buscarPorId(id);
 
                 if (juego == null) {
@@ -223,7 +226,10 @@ public class UtilidadesJuegos {
         try {
             System.out.print("ID del juego: ");
             int id = UtilidadesMenu.leerEntero();
-
+            if (id <= 0) {
+                System.out.println("El ID debe ser mayor que cero.");
+                return;
+            }
             Juego existente = dao.buscarPorId(id);
 
             if (existente == null) {
@@ -315,9 +321,9 @@ public class UtilidadesJuegos {
 
             try {
                 LocalDate.parse(fechaAlta);
-            } catch (Exception e) {
+            } catch (java.time.format.DateTimeParseException e) {
                 System.out.println(
-                        "La fecha debe tener el formato AAAA-MM-DD."
+                        "La fecha debe ser válida y tener el formato AAAA-MM-DD."
                 );
                 return;
             }
@@ -354,7 +360,10 @@ public class UtilidadesJuegos {
         try {
             System.out.print("ID del juego: ");
             int id = UtilidadesMenu.leerEntero();
-
+            if (id <= 0) {
+                System.out.println("El ID debe ser mayor que cero.");
+                return;
+            }
             Juego juego = dao.buscarPorId(id);
 
             if (juego == null) {

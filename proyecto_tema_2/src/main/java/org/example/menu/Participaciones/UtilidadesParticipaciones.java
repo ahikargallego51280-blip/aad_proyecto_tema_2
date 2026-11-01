@@ -28,11 +28,13 @@ public class UtilidadesParticipaciones {
     private final SocioDAO socioDAO = new SocioDAO();
 
 
-    // Comprobar que hay plazas y que el socio exista, y lo inscribe
     public void inscribirSocio() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         if (!comprobarPlaza(idPartida)) {
             return;
         }
@@ -62,11 +64,13 @@ public class UtilidadesParticipaciones {
     }
 
 
-    // Comprobar si hay plazas y registra al invitado
     public void inscribirInvitado() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         if (!comprobarPlaza(idPartida)) {
             return;
         }
@@ -88,7 +92,6 @@ public class UtilidadesParticipaciones {
         }
     }
 
-    // Comprueba que la partida este activa, que el juego este disponible y que queden plazas
     private boolean comprobarPlaza(int idPartida)
             throws SQLException {
 
@@ -125,11 +128,13 @@ public class UtilidadesParticipaciones {
     }
 
 
-    // Muestra los participantes de una partida y las plazas restantes
     public void listarParticipantes() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         Partida partida = partidaDAO.buscarPorId(idPartida);
 
         if (partida == null) {
@@ -172,15 +177,23 @@ public class UtilidadesParticipaciones {
 
         System.out.println("Plazas restantes: " + plazasRestantes);
     }
-    // Muestra los participantes, comprueba que la particiàcion elegida pertenezca a esa partida y registra al ganador
+
     public void registrarGanador() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         Partida partida = partidaDAO.buscarPorId(idPartida);
 
         if (partida == null) {
             System.out.println("No existe esa partida.");
+            return;
+        }
+
+        if (!partida.isActiva()) {
+            System.out.println("No se puede registrar un ganador en una partida cancelada.");
             return;
         }
 
@@ -204,7 +217,10 @@ public class UtilidadesParticipaciones {
 
         System.out.print("ID de participación del ganador: ");
         int idParticipacion = UtilidadesMenu.leerEntero();
-
+        if (idParticipacion <= 0) {
+            System.out.println("El ID de participación debe ser mayor que cero.");
+            return;
+        }
         Participacion seleccionada =
                 buscarParticipacion(participantes, idParticipacion);
 
@@ -222,11 +238,13 @@ public class UtilidadesParticipaciones {
         }
     }
 
-    // Seleccione a un participante, confirma su retirada y retirarlo
     public void retirarParticipante() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
-
+        if (idPartida <= 0) {
+            System.out.println("El ID de la partida debe ser mayor que cero.");
+            return;
+        }
         Partida partida = partidaDAO.buscarPorId(idPartida);
 
         if (partida == null) {
@@ -253,7 +271,10 @@ public class UtilidadesParticipaciones {
                 "ID de participación que quieres retirar: "
         );
         int idParticipacion = UtilidadesMenu.leerEntero();
-
+        if (idParticipacion <= 0) {
+            System.out.println("El ID de participación debe ser mayor que cero.");
+            return;
+        }
         Participacion seleccionada =
                 buscarParticipacion(participantes, idParticipacion);
 
@@ -284,7 +305,6 @@ public class UtilidadesParticipaciones {
     }
 
 
-    // Busca una participacion dentro de una lista pod su id
     private Participacion buscarParticipacion(
             List<Participacion> participantes, int id) {
 

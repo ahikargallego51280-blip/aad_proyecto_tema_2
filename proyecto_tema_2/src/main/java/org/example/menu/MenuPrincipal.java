@@ -16,8 +16,6 @@ import java.util.Scanner;
 
 public class MenuPrincipal {
 
-    private final Scanner sc = new Scanner(System.in);
-
     public void mostrar() {
         int opcion;
 
