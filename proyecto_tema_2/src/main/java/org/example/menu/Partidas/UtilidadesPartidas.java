@@ -26,7 +26,6 @@ public class UtilidadesPartidas {
     private final ParticipacionDAO participacionDAO = new ParticipacionDAO();
     private final SocioDAO socioDAO = new SocioDAO();
 
-    // Crear una partida
     public void crear() throws SQLException {
         System.out.print("ID del juego: ");
         int idJuego = UtilidadesMenu.leerEntero();
@@ -83,14 +82,12 @@ public class UtilidadesPartidas {
         }
     }
 
-    // Listar todas las partidas
     public void listar() throws SQLException {
         List<Partida> partidas = partidaDAO.listarTodas();
 
         mostrarResultados(partidas);
     }
 
-    // Buscar partidas por juego o por fecha
     public void buscar() throws SQLException {
         System.out.println("\nBUSCAR PARTIDA");
         System.out.println("1. Buscar por ID del juego");
@@ -129,7 +126,6 @@ public class UtilidadesPartidas {
         mostrarResultados(partidas);
     }
 
-    // Mostrar los resultados de una búsqueda
     private void mostrarResultados(List<Partida> partidas)
             throws SQLException {
 
@@ -194,7 +190,6 @@ public class UtilidadesPartidas {
     }
 
 
-    // Modificar una partida
     public void modificar() throws SQLException {
         System.out.print("ID de la partida: ");
         int id = UtilidadesMenu.leerEntero();
@@ -267,7 +262,6 @@ public class UtilidadesPartidas {
         }
     }
 
-    // Cancelar una partida
     public void cancelar() throws SQLException {
         System.out.print("ID de la partida: ");
         int id = UtilidadesMenu.leerEntero();
@@ -302,7 +296,6 @@ public class UtilidadesPartidas {
         }
     }
 
-    // Leer una fecha
     private LocalDate leerFecha() {
         try {
             return LocalDate.parse(sc.nextLine().trim());
@@ -312,7 +305,6 @@ public class UtilidadesPartidas {
         }
     }
 
-    // Leer una hora
     private LocalTime leerHora() {
         try {
             return LocalTime.parse(sc.nextLine().trim());

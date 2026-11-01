@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="#17 &#10;Validacion de errores y excepciones">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/DatoEstadistica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/Estadisticas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/Historial.java" afterDir="false" />
+    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Mejoras">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/seguridad/sesiones.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/seguridad/sesiones.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +35,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ahikargallego51280-blip/aad_proyecto_tema_2.git&quot;,
-    &quot;accountId&quot;: &quot;f8d9808d-8866-475c-a6da-8711e6be40bf&quot;
+    &quot;accountId&quot;: &quot;0db3b808-1ffd-4746-b559-89f9d992fd15&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -73,14 +73,6 @@
       <recent name="$PROJECT_DIR$/src/main/java/org/example/docker" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example" />
     </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -162,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1793203039627</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Mejoras">
+      <option name="closed" value="true" />
+      <created>1793210214214</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1793210214214</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +181,7 @@
     <MESSAGE value="Completar ficha de socio con juegos y partidas.&#10;- Closes #11" />
     <MESSAGE value="Adición de memoria.&#10;- Closes #15" />
     <MESSAGE value="#17 &#10;Validacion de errores y excepciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="#17 &#10;Validacion de errores y excepciones" />
+    <MESSAGE value="Mejoras" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras" />
   </component>
 </project>
