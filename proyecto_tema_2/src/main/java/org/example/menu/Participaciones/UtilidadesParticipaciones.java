@@ -28,7 +28,6 @@ public class UtilidadesParticipaciones {
     private final SocioDAO socioDAO = new SocioDAO();
 
 
-    // Comprobar que hay plazas y que el socio exista, y lo inscribe
     public void inscribirSocio() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
@@ -65,7 +64,6 @@ public class UtilidadesParticipaciones {
     }
 
 
-    // Comprobar si hay plazas y registra al invitado
     public void inscribirInvitado() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
@@ -94,7 +92,6 @@ public class UtilidadesParticipaciones {
         }
     }
 
-    // Comprueba que la partida este activa, que el juego este disponible y que queden plazas
     private boolean comprobarPlaza(int idPartida)
             throws SQLException {
 
@@ -131,7 +128,6 @@ public class UtilidadesParticipaciones {
     }
 
 
-    // Muestra los participantes de una partida y las plazas restantes
     public void listarParticipantes() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
@@ -182,7 +178,6 @@ public class UtilidadesParticipaciones {
         System.out.println("Plazas restantes: " + plazasRestantes);
     }
 
-    // Muestra los participantes, comprueba que la particiàcion elegida pertenezca a esa partida y registra al ganador
     public void registrarGanador() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
@@ -243,7 +238,6 @@ public class UtilidadesParticipaciones {
         }
     }
 
-    // Seleccione a un participante, confirma su retirada y retirarlo
     public void retirarParticipante() throws SQLException {
         System.out.print("ID de la partida: ");
         int idPartida = UtilidadesMenu.leerEntero();
@@ -311,7 +305,6 @@ public class UtilidadesParticipaciones {
     }
 
 
-    // Busca una participacion dentro de una lista pod su id
     private Participacion buscarParticipacion(
             List<Participacion> participantes, int id) {
 

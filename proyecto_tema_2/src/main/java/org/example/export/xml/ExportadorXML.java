@@ -26,8 +26,7 @@ public class ExportadorXML {
     }
 
     private File crearArchivo(String nombre) throws IOException {
-        File carpeta = new File("exportaciones");
-
+        File carpeta = new File("src/main/java/org/example/export/exportaciones");
         if (!carpeta.exists() && !carpeta.mkdirs()) {
             throw new IOException(
                     "No se pudo crear la carpeta de exportaciones."
@@ -133,7 +132,7 @@ public class ExportadorXML {
                 .writeValue(archivo, historial);
 
         System.out.println(
-                "Historial exportado: " + archivo.getAbsolutePath()
+                "Historial exportado!!! "
         );
     }
 

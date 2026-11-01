@@ -16,7 +16,7 @@ public class ExportadorMetadatos {
 
         String json = dao.obtenerMetadatosJSON();
 
-        Path carpeta = Path.of("src/main/java/org/example/exportaciones");
+        Path carpeta = Path.of("src/main/java/org/example/export/exportaciones");
         Files.createDirectories(carpeta);
 
         Path archivo = carpeta.resolve("metadatos.json");

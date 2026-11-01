@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Mejoras">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="9b3cb5f1-bed7-4457-b6b9-21c1d6dd021a" name="Changes" comment="Cambios en la conexion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Partidas/UtilidadesPartidas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ParticipacionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ParticipacionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/data/ExportadorMetadatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/data/ExportadorMetadatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/exportaciones/estadisticas.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/exportaciones/metadatos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/exportaciones/socios.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/json/ExportadorJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/json/ExportadorJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/export/xml/ExportadorXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/menu/Participaciones/UtilidadesParticipaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/menu/Participaciones/UtilidadesParticipaciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/seguridad/sesiones.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/seguridad/sesiones.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/ParticipacionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/ParticipacionDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/export/xml/ExportadorXML.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1793210214214</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Cambios en la conexion">
+      <option name="closed" value="true" />
+      <created>1793538095587</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1793538095587</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +197,7 @@
     <MESSAGE value="Adición de memoria.&#10;- Closes #15" />
     <MESSAGE value="#17 &#10;Validacion de errores y excepciones" />
     <MESSAGE value="Mejoras" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejoras" />
+    <MESSAGE value="Cambios en la conexion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la conexion" />
   </component>
 </project>

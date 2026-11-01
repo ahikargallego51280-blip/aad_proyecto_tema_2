@@ -25,8 +25,7 @@ public class ExportadorJSON {
     }
 
     private File crearArchivo(String nombre) throws IOException {
-        File directorio = new File("exportaciones");
-
+        File directorio = new File("src/main/java/org/example/export/exportaciones");
         if (!directorio.exists() && !directorio.mkdirs()) {
             throw new IOException(
                     "No se pudo crear la carpeta exportaciones."
@@ -53,7 +52,7 @@ public class ExportadorJSON {
         mapper.writeValue(archivo, socios);
 
         System.out.println(
-                "Socios exportados: " + archivo.getAbsolutePath()
+                "Socios exportados!!! "
         );
     }
 
@@ -68,7 +67,7 @@ public class ExportadorJSON {
         mapper.writeValue(archivo, juegos);
 
         System.out.println(
-                "Juegos exportados: " + archivo.getAbsolutePath()
+                "Juegos exportados!!! "
         );
     }
 
@@ -85,7 +84,7 @@ public class ExportadorJSON {
         mapper.writeValue(archivo, partidas);
 
         System.out.println(
-                "Partidas exportadas: " + archivo.getAbsolutePath()
+                "Partidas exportadas!!! "
         );
     }
 
@@ -120,7 +119,7 @@ public class ExportadorJSON {
         mapper.writeValue(archivo, datos);
 
         System.out.println(
-                "Historial exportado: " + archivo.getAbsolutePath()
+                "Historial exportado!!! "
         );
     }
 
@@ -147,7 +146,7 @@ public class ExportadorJSON {
         mapper.writeValue(archivo, datos);
 
         System.out.println(
-                "Estadísticas exportadas: " + archivo.getAbsolutePath()
+                "Estadísticas exportadas!!! "
         );
     }
 
