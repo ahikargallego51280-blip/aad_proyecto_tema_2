@@ -1,11 +1,5 @@
 # Memoria del proyecto: Gestión de una asociación de juegos de mesa
 
-> **Datos del proyecto**  
-> **Asignatura / módulo:** [completar]  
-> **Integrantes del equipo:** [completar]  
-> **Curso académico:** [completar]  
-> **Versión del documento:** 1.0
-
 ## 1. Introducción
 
 ### 1.1. Descripción del proyecto
@@ -465,9 +459,6 @@ La validación se realiza en dos niveles: desde la aplicación para dar mensajes
 
 ### 8.1. Semana 1 — Análisis y estructura inicial
 
-**Fecha:** no registrada.  
-**Asistentes:** no registrados.
-
 **Objetivo de la semana**  
 Definir el alcance de la aplicación, identificar la información que debía gestionar la asociación y establecer la estructura inicial del proyecto.
 
@@ -494,9 +485,6 @@ Definir el alcance de la aplicación, identificar la información que debía ges
 Disponer de una estructura inicial del proyecto y de un primer diseño de la base de datos. La siguiente fase se orientaría a implementar la conexión JDBC y las operaciones principales de gestión.
 
 ### 8.2. Semana 2 — Acceso a datos y funcionalidades de gestión
-
-**Fecha:** no registrada.  
-**Asistentes:** no registrados.
 
 **Objetivo de la semana**  
 Implementar las operaciones principales de consulta y modificación y conectar la aplicación con la base de datos.
@@ -525,9 +513,6 @@ Implementar las operaciones principales de consulta y modificación y conectar l
 Contar con las funcionalidades centrales de gestión conectadas a MariaDB/MySQL. La siguiente fase se centraría en consultas de más alto nivel, historial, estadísticas, exportaciones y revisión general.
 
 ### 8.3. Semana 3 — Consultas, exportaciones, revisión y documentación
-
-**Fecha:** no registrada.  
-**Asistentes:** no registrados.
 
 **Objetivo de la semana**  
 Completar las funciones complementarias, revisar los casos de uso principales y preparar la documentación de puesta en marcha y diseño.
