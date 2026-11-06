@@ -133,8 +133,8 @@ Comprueba el contenido de `.env`, las variables de entorno del proceso y el dire
 
 ## 7. Buenas prácticas de seguridad
 
-- No guardes contraseñas reales en el repositorio.
-- No concedas acceso remoto a `root`.
+- No guarda contraseñas reales en el repositorio.
+- No concede acceso remoto a `root`.
 - Limita los permisos del usuario de aplicación a la base de datos necesaria.
 - Restringe las conexiones por IP y cortafuegos.
 - Evita exponer el puerto de la base de datos directamente a Internet.
